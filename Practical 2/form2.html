@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>New HTML5 Input Types</title>
+</head>
+
+<body>
+    <h1>New HTML5 Input Types Demo</h1>
+    <p>This form demonstrates the new HTML5 input types
+        and the placeholder, required and autofocus attributes.
+    </p>
+
+    <form method="GET" action="https://www.facebook.com/">
+        <p>
+            <label>
+                Date:
+                <input name="myDate" type="date" autofocus />
+                (yyyy-mm-dd)
+            </label>
+        </p>
+        <p>
+            <label>
+                Time:
+                <input type="time" name="myTime" /> (hh:mm)
+            </label>
+        </p>
+        <p>
+            <label>
+                Range:
+                0 <input name="myRange" type="range" min="0" max="20" value="10" /> 20
+            </label>
+        </p>
+
+        <p>
+            <label>
+                Tel:
+                <input name="myTel" type="tel" placeholder="(###) ###-####" pattern="\(\d{3}\) +\d{3}-\d{4}" required />
+                (###) ###-####
+            </label>
+        </p>
+        <details>
+            <summary>Intake:</summary>
+            <p>
+                <label for="intake">Intake: </label>
+                <input name="myText" type="text" list="months" id="intake" placeholder="Select an intake" />
+                <datalist id="months">
+                    <option value="January">
+                    <option value="May">
+                    <option value="October">
+                </datalist>
+            </p>
+        </details>
+
+        <p>
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Clear" />
+        </p>
+    </form>
+</body>
+
+</html>
