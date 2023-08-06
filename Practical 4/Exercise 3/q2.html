@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript</title>
+
+</head>
+
+<body>
+    <script>
+
+        var fee = 2500;
+
+        for (var i = 1; i <= 6; i++) {
+            document.write("Fee for year " + i + " : " + fee.toFixed(2) + "<br>");
+
+            fee += fee * 0.04;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript</title>
+
+</head>
+
+<body>
+    <script>
+
+        var total = 0;
+
+        for (var i = 1; i <= 5; i++) {
+            var number = prompt("Please enter the " + i + " value", "0");
+
+            var numberenter = parseFloat(number);
+
+            document.write(i + " value entered: " + numberenter + "<br>");
+
+            total += numberenter;
+
+        }
+
+        var average = total / (i - 1);
+
+        document.write("Average test score: " + average.toFixed(2));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript</title>
+
+</head>
+
+<body>
+    <script>
+
+        var positive = 0, negative = 0, zero = 0;
+
+        for (var round = 1; round <= 3; round++) {
+            var number = prompt("Please enter the " + round + " value", "0");
+            var numberenter = parseInt(number);
+            if (numberenter > 0) positive++;
+            else if (numberenter < 0) negative++;
+            else if (numberenter == 0) zero++;
+        }
+
+        document.writeln("<p>Zeroes entered: " + zero + "</p>");
+        document.writeln("<p>Positive numbers entered: " + positive + "</p>");
+        document.writeln("<p>Negative numbers entered: " + negative + "</p>");
+
+    </script>
+</body>
+
+</html>

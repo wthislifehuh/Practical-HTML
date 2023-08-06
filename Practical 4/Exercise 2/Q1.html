@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <script>
+
+        var inCome = prompt("Please enter your Income.");
+
+        var totalTax = 0;
+
+        var inComeFloat = parseFloat(inCome);
+
+        if (inComeFloat < 10000)
+            totalTax = inComeFloat * 0.05;
+
+        else if ((inComeFloat >= 10000) && (inComeFloat <= 100000))
+            totalTax = inComeFloat * 0.08;
+
+        else
+            totalTax = inComeFloat * 0.10;
+
+
+        document.write("Total income tax:" + totalTax.toFixed(2));
+
+    </script>
+</body>
+
+</html>

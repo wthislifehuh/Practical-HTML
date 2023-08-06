@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript</title>
+
+</head>
+
+<body>
+    <script>
+
+        var input = prompt("Enter an integer", "0");
+
+        var value = parseInt(input);
+
+        document.write("<p>" + value + (isEven(value) ? " is even" : " is odd") + "</p>");
+
+
+        function isEven(number) {
+            return (number % 2 === 0);
+        }
+
+    </script>
+</body>
+
+</html>
