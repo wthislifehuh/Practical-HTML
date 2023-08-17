@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Exercise 4</title>
+    <meta name="keywords" content="www, internet,website,online,html,htm" />
+    <meta name="description" content="Millienium Gymnastics Booster Club Popcorn Sales" />
+</head>
+
+<body>
+    <h2 id="top">Welcome to Millienium Gymnastics Booster Club Popcorn Sales</h2>
+
+    <form method="POST" action="https://www.facebook.com/">
+        <table>
+            <tr>
+                <td>Buyer's Name:</td>
+                <td><input type="text" name="buyername" size="20" value="tesco"></td>
+            </tr>
+
+            <tr>
+                <td>Security Key:</td>
+                <td><input type="password" name="securitykey" size="20" value=5599></td>
+                <td>(Example: 4581)</td>
+            </tr>
+
+            <tr>
+                <td>Street Address:</td>
+                <td><input type="text" name="street" size="20"></td>
+            </tr>
+
+            <tr>
+                <td>City, State, Zip:</td>
+                <td><input type="text" name="citystatezip" size="20"></td>
+            </tr>
+
+            <tr>
+                <td>Country:</td>
+                <td>
+                    <input type="text" name="country" list="country" placeholder="Select country" size="11" />
+                    <datalist id="country">
+                        <option value="Malaysia">
+                        <option value="Singapore">
+                        <option value="Thaniland">
+                    </datalist>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" size="20"></td>
+                <td>(emailid@domain.com)</td>
+            </tr>
+        </table>
+
+
+
+        <table border="1">
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+
+
+            <tr>
+                <td>Unpopped Popcorn (1 lb.)</td>
+                <td>$3.00</td>
+                <td><input type="text" name="unpop" size="3"></td>
+            </tr>
+
+            <tr>
+                <td>Caramel Popcorn (2 lb. canister)</td>
+                <td>$3.50</td>
+                <td><input type="text" name="carapop" size="3"></td>
+            </tr>
+
+            <tr>
+                <td>Caramel Nut Popcorn (2 lb. canister)</td>
+                <td>$4.50</td>
+                <td><input type="text" name="caranutpop" size="3"></td>
+            </tr>
+
+            <tr>
+                <td>Toffey Nut Popcorn (2 lb. canister)</td>
+                <td>$5.00</td>
+                <td><input type="text" name="toffnutpop" size="3"></td>
+            </tr>
+        </table>
+
+
+
+        <p> <strong>Payment Method:</strong><br />
+            <input name="paymentmethod" type="radio" value="visa" checked /></label>
+            <label>Visa<br>
+                <input name="paymentmethod" type="radio" value="mastercard" /></label>
+            <label>Master Card<br>
+                <input name="paymentmethod" type="radio" value="discover" /></label>
+            <label>Discover<br>
+                <input name="paymentmethod" type="radio" value="cheque" /></label>
+            <label>Cheque<br>
+        </p>
+
+
+
+        <p> <strong>Quality Feedback:</strong><br />
+            <input name="qualityfeedback" type="checkbox" value="verygood" /></label>
+            <label>Very Good<br>
+                <input name="qualityfeedback" type="checkbox" value="good" checked /></label>
+            <label>Good<br>
+                <input name="qualityfeedback" type="checkbox" value="dontlike" /></label>
+            <label>Don't like<br>
+                <input name="qualityfeedback" type="checkbox" value="poor" /></label>
+            <label>Poor
+        </p>
+
+
+
+        <p>
+            <a href="tq.html"><input type="submit" value="Submit Order" /></a>
+            <input type="reset" value="Clear Order Form" />
+        </p>
+
+        <p><strong><a href="#top">Go Top</a></strong></p>
+
+    </form>
+</body>
+
+</html>

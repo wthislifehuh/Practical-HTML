@@ -1,0 +1,77 @@
+<!--
+
+    <!DOCTYPE html>
+<html lang="en">
+
+p{
+font-family: Arial;}
+
+h1,h2,h3{
+font-family: Arial;
+colour: yellow;}
+
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CSS</title>
+    <style type="text/css">
+        * {
+
+            font-size: 36px;
+        }
+
+        span {
+            border: 5px dotted red;
+        }
+
+        .heading {
+            color: green;
+        }
+
+        #liA {
+            font-weight: bold;
+            color: blueviolet;
+        }
+
+        #divA p {
+            background-color: lightgreen;
+        }
+
+        #divA>p {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2 class="heading">H2 element</h2>
+    <p class="heading">Para(p) element</p>
+    <ul>
+        <li id="liA"> List item(li) element</li>
+        <li> List item (li) element</li>
+    </ul>
+    <span class="heading">SPAN element</span>
+    <div id="divA">
+        <h1>Welcome</h1>
+        <p>Level1 : Descendant and child element 1</p>
+        <p>Level1 : Descendant and child element 2</p>
+        <div>
+            <p>----Level2 : Descendant element 11</p>
+            <p>----Level2 : Descendant element 12</p>
+        </div>
+        <div>
+            <p>----Level2 : Descendant element 21</p>
+            <p>----Level2 : Descendant element 22</p>
+        </div>
+        <p>Level1 : Descendant element 3</p>
+    </div>
+</body>
+
+</html>

@@ -7,3 +7,127 @@
     When you submit the form, another webpage is opened showing the “Thanks!!! Your Form has been submitted” message.  
 -->
 
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Exercise 4">
+    <title>Exercise 4</title>
+</head>
+
+<body>
+    <header>
+        <h2 id="top">Welcome to Millienium Gymnastics Booster Club Popcorn Sales</h2>
+    </header>
+    <form method="post" autocomplete="on" action="tq.html">
+    <section id="sec1">
+        <table>
+            <tr>
+                <td>Buyer's Name:</td>
+                <td><input type="text" name="buyername" size="20" value="tesco"></td>
+            </tr>
+
+            <tr>
+                <td>Security Key:</td>
+                <td><input type="password" name="securitykey" size="20" value=5599></td>
+                <td>(Example: 4581)</td>
+            </tr>
+
+            <tr>
+                <td>Street Address:</td>
+                <td><input type="text" name="street" size="20"></td>
+            </tr>
+
+            <tr>
+                <td>City, State, Zip:</td>
+                <td><input type="text" name="citystatezip" size="20"></td>
+            </tr>
+
+            <tr>
+                <td>Country:</td>
+                <td>
+                    <input type="text" name="country" list="country" placeholder="Select country" size="11" />
+                    <datalist id="country">
+                        <option value="Malaysia">
+                        <option value="Singapore">
+                        <option value="Thaniland">
+                    </datalist>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" size="20"></td>
+                <td>(emailid@domain.com)</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="sec2">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Unpopped Popcorn (1 lb.)</td>
+                    <td>$3.00</td>
+                    <td><input type="text" name="unpop" size="3"></td>
+                </tr>
+                <tr>
+                    <td>Caramel Popcorn (2 lb. canister)</td>
+                    <td>$3.50</td>
+                    <td><input type="text" name="caramel" size="3"></td>
+                </tr>
+                <tr>
+                    <td>Caramel Nut Popcorn (3 lb. canister)</td>
+                    <td>$4.50</td>
+                    <td><input type="text" name="caramel" size="3"></td>
+                </tr>
+                <tr>
+                    <td>Toffey Nut Popcorn (2 lb. canister)</td>
+                    <td>$5.00</td>
+                    <td><input type="text" name="toffnutpop" size="3"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="sec3">
+        <p>
+            <strong>Payment Method:</strong><br />
+            <input type="radio" name="payment" value="visa" checked>Visa<br />
+            <input type="radio" name="payment" value="mastercard">Mastercard<br />
+            <input type="radio" name="payment" value="discover">Discover<br />
+            <input type="radio" name="payment" value="cheque">Cheque<br />
+        </p>
+
+        <p>
+            <strong>Quality Feedback:</strong><br />
+            <input type="checkbox" name="quality" value="Very Good">Very Good<br />
+            <input type="checkbox" name="quality" value="Good" checked>Good<br />
+            <input type="checkbox" name="quality" value="Don't Like">Don't Like<br />
+            <input type="checkbox" name="quality" value="Poor">Poor<br />
+        </p>
+
+        <p>
+            <button type="submit" name="submit">Submit Order</button>
+            <button type="reset" value="clear">Clear Order Form</button>
+            <!-- Alternative
+            <a href="tq.html"><input type="submit" value="Submit Order" /></a>
+            <input type="reset" value="Clear Order Form" />
+            -->
+        </p>
+        <b><a href="#top">Go Top</a></b>
+    </section>
+    </form>
+</body>
+
+</html>

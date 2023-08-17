@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>World of Disney</title>
+    <style type="text/css">
+        body {
+            background-color: skyblue ;
+        }
+        
+        header {
+            width: 30%;
+            float: left;
+            /* float property is used to specify how an element should be positioned within its containing element, 
+            allowing other elements to flow around it. */
+        }
+
+        body>header{
+            position: relative; 
+            top: -10px;
+            left: 600px;
+            color: blue;
+        }
+
+        article header{
+            color: purple;
+        }
+
+        section{
+            margin: 20px;
+        }
+
+        #sec1{
+            width: 40%; 
+            /* To set 2 images and article side by side */
+            float: right;
+        }
+
+        #sec2 figcaption{
+            color: red;
+        }
+
+        figure{
+            text-align: center;
+            margin: 10px;
+        }
+
+        img{
+            color: navy;
+            border: 2px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Disney Land - A World of Dreams</h2>
+    </header>
+    <section id="sec1">
+        <br><br>
+        <figure>
+            <img src="../images/Prac3/fun.jpg" alt="disney fun" width="400" height="300" />
+            <figcaption>Disney World</figcaption>
+        </figure>
+        <article>
+            <header>
+                <h2>Fun @ Disney</h2>
+            </header>
+            <p>
+                Grab your camera and get ready to Meet’n’Greet all your favourite Disney Characters for an encounter
+                that’s unforgettable for all ages. To help you find them for a hug, an autograph and a photo, we’ve
+                included when and where you can meet your favourite Disney Characters in the Disney Parks. Say cheese!
+            </p>
+        </article>
+    </section>
+    <section id="sec2">
+        <figure>
+            <img src="../images/Prac3/disney.jpg" alt="disney land" width="600" height="300" />
+            <figcaption>Disney Land &reg;</figcaption>
+        </figure>
+        <article>
+            <header>
+                <h3>Disney Land</h3>
+            </header>
+            <p>
+                Enter a magical kingdom where you can sail with pirates, explore exotic jungles, meet fairy-tale
+                princesses, dive under the ocean and rocket through the stars—all in the same day! Disneyland Park is a
+                beloved Southern California destination where generations of families have made their Disney dreams come
+                true. Opened in 1955, Walt Disney’s original theme park is divided into 8 extravagantly themed
+                lands—Main Street, U.S.A., Tomorrowland, Fantasyland, Mickey's Toontown, Frontierland, Critter Country,
+                New Orleans Square and Adventureland.
+            </p>
+        </article>
+    </section>
+</body>
+
+</html>
