@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Exercise3_1</title>
+</head>
+
+<body>
+    <form onsubmit="employeeFunction(event)">
+        <table>
+            <tr>
+                <td>
+                    Sales:
+                </td>
+
+                <td>
+                    <input type="text" id="sales" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"></p>
+
+    <script>
+        function employeeFunction(event) {
+            event.preventDefault();
+
+            var sales = parseFloat(document.getElementById("sales").value);
+
+            var basePay = 900;
+            var commision = 0.06 * sales;
+            var grossPay = basePay + commision;
+            var deductions = 0.18 * grossPay;
+            var netPay = grossPay - deductions;
+
+            var housing = 0.3 * netPay;
+            var foodAndClothing = 0.15 * netPay;
+            var entertainment = 0.5 * netPay;
+            var miscellaneous = 0.05 * netPay;
+
+            var message = "Commision: " + commision.toFixed(2);
+            message += "<br>Gross Pay: " + grossPay.toFixed(2);
+            message += "<br>Deductions: " + deductions.toFixed(2);
+            message += "<br>Net Pay: " + netPay.toFixed(2);
+            message += "<br>Housing: " + housing.toFixed(2);
+            message += "<br>Food and Clothing: " + foodAndClothing.toFixed(2)
+            message += "<br>Miscellaneous: " + miscellaneous.toFixed(2);
+
+
+            document.getElementById("demo").innerHTML = message;
+
+        }
+    </script>
+</body>
+
+</html>

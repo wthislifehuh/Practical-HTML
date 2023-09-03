@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Favourite Food and Drink</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Description</td>
+            <td>Input</td>
+            <td>Show</td>
+        </tr>
+        <tr>
+            <td>Favorite Food</td>
+            <td><input id="myFood" type="text"></td>
+            <td id="foodInput"></td>
+        </tr>
+        <tr>
+            <td>Favorite Drink</td>
+            <td><input id="myDrink" type="text"></td>
+            <td id="drinkInput"></td>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $("#myFood").focus(function () {
+                $("#foodInput").css("background-color", "red");
+            })
+            $("#myFood").blur(function () {
+                $("#foodInput").css("background-color", "white");
+            })
+            $("#myDrink").focus(function () {
+                $("#drinkInput").css("background-color", "red");
+            })
+            $("#myDrink").blur(function () {
+                $("#drinkInput").css("background-color", "white");
+            })
+        })
+
+        // JavaScript
+        // document.getElementById("myFood").addEventListener("focus",changeColorRed);
+
+        // function changeColorRed() {
+        //     document.getElementById("foodInput").style.backgroundColor = "red";
+        // }
+
+        // document.getElementById("myFood").addEventListener("blur",changeColorWhite);
+
+        // function changeColorWhite() {
+        //     document.getElementById("foodInput").style.backgroundColor = "white";
+        // }
+
+        // document.getElementById("myDrink").addEventListener("focus",changeColorRed2);
+
+        // function changeColorRed2() {
+        //     document.getElementById("drinkInput").style.backgroundColor = "red";
+        // }
+
+        // document.getElementById("myDrink").addEventListener("blur",changeColorWhite2);
+
+        // function changeColorWhite2() {
+        //     document.getElementById("drinkInput").style.backgroundColor = "white";
+        // }
+    </script>
+</body>
+
+</html>

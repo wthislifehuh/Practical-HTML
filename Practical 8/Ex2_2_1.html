@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Web Storage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form>
+        <h1>JSON</h1>
+
+        <p>
+            <input type="submit" value="Store JSON">
+            <a href="Ex2_2_2.html">Retrieve JSON File</a>
+        </p>
+    </form>
+
+    <script>
+        $(function () {
+            let items = [{
+                "item": "Downtown",
+                "count": "128"
+            }, {
+                "item": "Fells Point",
+                "count": "91"
+            }, {
+                "item": "Inner Harbor",
+                "count": "89"
+            }, {
+                "item": "Canton",
+                "count": "81"
+            }, {
+                "item": "federal Hill",
+                "count": "42"
+            }, {
+                "item": "mount Vernon",
+                "count": "33"
+            }, {
+                "item": "riverside",
+                "count": "29"
+            }, {
+                "item": "Mid-Town Belvedere",
+                "count": "29"
+            }, {
+                "item": "Hampden",
+                "count": "29"
+            }, {
+                "item": "Charles Village",
+                "count": "25"
+            }, {
+                "item": "Little Italy",
+                "count": "23"
+            }, {
+                "item": "Greektown",
+                "count": "22"
+            }, {
+                "item": "charles North",
+                "count": "22"
+            }, {
+                "item": "Highlandtown",
+                "count": "18"
+            }, {
+                "item": "Washington Village",
+                "count": "17"
+            }, {
+                "item": "Brooklyn",
+                "count": "17"
+            }, {
+                "item": "Carrollton Ridge",
+                "count": "16"
+            }, {
+                "item": "baltimore Highlands",
+                "count": "16"
+            }, {
+                "item": "Baltimore-Linwood",
+                "count": "15"
+            }, {
+                "item": "Brewers Hill",
+                "count": "14"
+            }];
+
+
+            $("form").submit(function (event) {
+
+                event.preventDefault();
+
+                if (typeof (Storage) !== "undefined") {
+
+                    sessionStorage.setItem("Items", JSON.stringify(items));
+
+                    alert("Stored successfully!");
+
+                }
+
+            });
+        });      
+    </script>
+</body>
+
+</html>

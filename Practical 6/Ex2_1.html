@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Ex2 Q1 </title>
+</head>
+
+<body>
+    <form onsubmit="InsertFunction(event)">
+        <table>
+            <tr>
+                <td>
+                    Enter integer value
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="str" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p><input type="button" value="Replace Even Number Values" onclick="ReplaceEvenFunction()"></p>
+    <p id="demo"></p>
+    <p id="demoEven"></p>
+    <script>
+        var arr = [];
+
+        var newArr = [];
+
+        function InsertFunction(event) {
+            event.preventDefault();
+
+            var str = document.getElementById("str").value;
+
+            arr.push(str);
+
+            newArr.push(str);
+
+            document.getElementById("str").value = "";
+
+            alert(str + " Insert Successfully");
+
+
+        }
+
+        function ReplaceEvenFunction() {
+
+            for (var i = 0; i < arr.length; i++) {
+                if (newArr[i] % 2 == 0)
+                    newArr[i] = -111;
+            }
+
+            document.getElementById("demo").innerHTML = arr.join('<br>');
+
+            document.getElementById("demoEven").innerHTML = newArr.join('<br>');
+        }
+
+
+    </script>
+</body>
+
+</html>

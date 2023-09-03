@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery getJSON() Method</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>JSON</h1>
+	    <h3>Sample Output 1 (JSON String) </h3>
+		<div></div>
+		
+		  <h3>Sample Output 2</h3>
+    <table border="1" id="myTable">
+        <thead>
+            <tr>
+                <th>Squad Name</th>
+                <th>Home Town</th>
+                <th>Formed</th>
+                <th>Secret Base</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        $(function () {
+
+        			
+			$.ajax({
+            method: "GET",
+            url: "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"           
+            })
+            .done(function( data ) {
+			
+			 $('div').html(JSON.stringify(data));
+                 
+                $('#myTable tbody').append("<tr><td>"
+                    + data.squadName + "</td><td >" +
+                    data.homeTown + "</td><td>" +
+                    data.formed + "</td><td>"
+                    + data.secretBase + "</td></tr>");
+
+             });
+			
+
+        });
+    </script>
+</body>
+</html>
+

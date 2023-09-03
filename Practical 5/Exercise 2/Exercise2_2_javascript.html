@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title> HTML DOM and Event</title>
+</head>
+
+<body>
+    <img src="Practical5_images/flower0.jpg" alt="animation" id="animatePic" />
+    <br>
+    <input type="button" value="Show" onclick="show('animatePic')" />
+    <input type="button" value="Hide" onclick="hide('animatePic')" />
+    <input type="button" value="Grow" onclick="grow()" />
+
+
+    <script>
+        var frameNo = 1;
+
+        function grow() {
+            document.getElementById("animatePic").style.visibility = "visible";
+
+            if (frameNo < 13) {
+                document.getElementById("animatePic").src = "Practical5_images/flower" + frameNo + ".JPG";
+                frameNo++;
+            }
+
+        }
+
+        function show(d) {
+            document.getElementById(d).style.visibility = "visible";
+        }
+
+        function hide(d) {
+            document.getElementById(d).style.visibility = "hidden";
+        }
+
+    </script>
+</body>
+
+</html>

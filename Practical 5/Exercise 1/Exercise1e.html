@@ -1,0 +1,39 @@
+<!-- jQuery DOM Event -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM and Event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>
+        Window confirm() Method
+    </h2>
+
+    <button id="myBtn">Click me!</button>
+
+    <script>
+        $(function () {// $(function(){}); is the same as $(document).ready(function(){});
+            $('#myBtn').click(function () { // assign event to button
+
+                var doc;
+                var result = confirm("Press a button!");
+                if (result == true) {
+                    doc = "<h1>OK was pressed.</h1>";
+                } else {
+                    doc = "<h1>Cancel was pressed.</h1>";
+                }
+
+                $("#demo").html(doc); // change html to text
+            });
+        });
+    </script>
+
+    <p id="demo"></p>
+
+</body>
+
+</html>

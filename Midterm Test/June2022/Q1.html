@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Survey</title>
+</head>
+
+<body>
+    <form method="post" action="">
+        <label>
+            Name: <input type="text" name="name" id="name" required>
+        </label>
+        <label>
+            Email: <input type="email" name="email" id="email" required>
+        </label><br />
+        <label>
+            Select Your Favorite Types of Music: <br />
+            <input type="checkbox" name="musicType" id="musicType" value="Pop">Pop
+            <input type="checkbox" name="musicType" id="musicType" value="Classical">Classical
+            <input type="checkbox" name="musicType" id="musicType" value="Rock">Rock
+            <input type="checkbox" name="musicType" id="musicType" value="Other">Other
+        </label><br />
+        <label>
+            Select how often you purchase Music CDs: <br />
+            <input type="radio" name="purchase" id="purchase" value="Weekly">Weekly
+            <input type="radio" name="purchase" id="purchase" value="Monthly">Monthly
+            <input type="radio" name="purchase" id="purchase" value="Never purchase">Never purchase
+        </label>
+        <p>
+            <button type="submit" name="Submit">Submit</button>
+            <button type="reset" name="Reset">Reset</button>
+        </p>
+
+
+    </form>
+</body>
+
+</html>

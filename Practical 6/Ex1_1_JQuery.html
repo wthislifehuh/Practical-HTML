@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM,Event and Object </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Enter string value
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="str" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"></p>
+    <p id="ave"></p>
+        <script>
+            var arr = [];
+
+            var total = 0;
+
+            $(function () {
+                $("form").submit(function (event) {
+                event.preventDefault();
+
+                var str = $("#str").val();
+
+                total += str.length;
+                             
+                arr.push(str);
+
+                $("#str").val("");
+
+                arr.sort();
+
+                 $("#demo").html(arr.join('<br>'));
+
+                $("#ave").html("Average number of characters : " + (total / arr.length).toFixed(2));
+                });
+            });
+
+        </script>
+</body>
+</html>
+

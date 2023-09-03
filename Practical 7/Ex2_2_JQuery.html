@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery getJSON() Method</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>JSON</h1>
+    <table border="1" id="myTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Secret Identity</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        $(function () {
+
+            var aPI = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
+
+            $.getJSON(aPI)
+                .done(function (data) {
+
+                    for (var i = 0; i < data.members.length; i++) {
+
+                        $('#myTable tbody').append("<tr><td>"
+                            + data.members[i].name + "</td><td >" +
+                            data.members[i].age + "</td><td>"
+                            + data.members[i].secretIdentity + "</td></tr>");
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

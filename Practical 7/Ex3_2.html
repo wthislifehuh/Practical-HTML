@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>University Domain Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div>
+        <form id="countryFrm">
+            Country: <input id="country" name="country" type="text" /> <br>
+            University Name: <input id="university" type="text" /> <br />
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+     
+        $(function () {
+            let countryName;
+            let universityName;
+            $("#countryFrm").submit(function (e) {
+                e.preventDefault();
+                countryName = $("#country").val();
+                universityName = $("#university").val();
+                getUniversityDomain(countryName, universityName);
+            });
+        });
+
+        function getUniversityDomain(country, university) {
+            let found = false;
+            $.ajax({
+                crossDomain: true,
+                type: "GET",
+                url: "http://universities.hipolabs.com/search?country=" + country,
+                success: function (data, textStatus, jqXHR) {
+                    const re = new RegExp("^" + university + "$", 'gi');
+                    data.forEach(element => {
+                        let universityName = element.name;
+                        var index = universityName.search(re);
+                        if (index != -1){
+                            alert(element.domains[0]);
+                            found = true;
+                        }
+                    });
+                    if (!found){
+                        alert("University not found!");
+                    }
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>

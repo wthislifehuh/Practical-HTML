@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Web Storage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form>
+        <h1>JSON</h1>
+
+        <p>
+            <input type="submit" value="Store JSON">
+            <a href="Ex2_1_2.html">Retrieve JSON File</a>
+        </p>
+    </form>
+
+    <script>
+        $(function () {
+            let user = {
+                "name": "Ben Halp",
+                "age": 35,
+                "car": "Myvi",
+                "address": {
+                    "street": "55, cathedral road",
+                    "city": "Boston",
+                    "cop": true
+                },
+                "hobbies": ["reading", "golfing"]
+            };
+
+            $("form").submit(function (event) {
+
+                event.preventDefault();
+
+                if (typeof (Storage) !== "undefined") {
+
+                    sessionStorage.setItem("User", JSON.stringify(user));
+
+                    alert("Stored successfully!");
+
+                }
+
+            });
+        });      
+    </script>
+</body>
+
+</html>

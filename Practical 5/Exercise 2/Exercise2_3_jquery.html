@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title> HTML DOM and Event</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <form>
+    <h3 class="title">Plane</h3>
+    <label>
+      <input type="radio" name="planeButton" value="152">
+      Model 152 </label>
+    <label>
+      <input type="radio" name="planeButton" value="172">
+      Model 172 (Skyhawk)</label>
+    <label>
+      <input type="radio" name="planeButton" value="182">
+      Model 182 (Skylane)</label>
+    <label>
+      <input type="radio" name="planeButton" value="210">
+      Model 210 (Centurian)</label>
+  </form>
+
+  <script>
+
+    $(function () {
+      $("input:radio[name=planeButton]").on("click", function () {
+        if ($(this).is(':checked')) {
+          var choice = $(this).val();
+          planeChoice(parseInt(choice));
+        }
+
+      });
+    });
+
+    function planeChoice(plane) {
+      switch (plane) {
+        case 152:
+          alert("A small two-place airplane for flight training");
+          break;
+        case 172:
+          alert("The smaller of two four-place airplanes");
+          break;
+        case 182:
+          alert("The larger of two four-place airplanes");
+          break;
+        case 210:
+          alert("A six-place high-performance airplane");
+          break;
+        default:
+          alert("Error in JavaScript function planeChoice");
+          break;
+      }
+    }
+  </script>
+</body>
+
+</html>

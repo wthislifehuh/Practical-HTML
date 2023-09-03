@@ -1,0 +1,40 @@
+<!-- JavaScript HTML DOM EventListener -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM and Event</title>
+</head>
+
+<body>
+    <h2>
+        Window confirm() Method
+    </h2>
+
+    <button id="myBtnEventListener">Try it(EventListener)</button>
+
+    <p id="demo"></p>
+
+    <script>
+
+        document.getElementById("myBtnEventListener").addEventListener("click", display);
+
+        function display() {
+
+            var doc;
+            var result = confirm("Press a button!");
+            if (result == true) {
+                doc = "OK was pressed.";
+            } else {
+                doc = "Cancel was pressed.";
+            }
+            document.getElementById("demo").innerHTML = doc;
+            document.getElementById("myBtnEventListener").removeEventListener("click", display);
+        }
+    </script>
+
+</body>
+
+</html>

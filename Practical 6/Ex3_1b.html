@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf=8">
+    <title>Exercise 3 - Q1b</title>
+
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div>
+        <form onsubmit="calculateToyotaTotalPrice(event)"> <!-- Uses inline event handler -->
+            <div>
+                <label>Toyota VIOS, RM74623 <input name="Toyota" type="checkbox" value="RM74623" /></label><br>
+                <label>Honda City, RM74191.27 <input name="Honda" type="checkbox" value="RM74191.27" /></label><br>
+                <label>Toyota ALPHARD, RM446609 <input name="Toyota" type="checkbox" value="RM446609" /></label><br>
+                <label>Toyota COROLLA CROSS, RM123000 <input name="Toyota" type="checkbox" value="RM123000" /></label><br>
+                <label>Honda CR-V, RM139912.53 <input name="Honda" type="checkbox" value="RM139912.53" /></label><br>
+                <label>Toyota HILUX, RM95880 <input name="Toyota" type="checkbox" value="RM95880" /></label><br>
+                <label>Toyota HIACE, RM108000 <input name="Toyota" type="checkbox" value="RM108000" /></label><br>
+               
+            </div>
+            <div>
+                <input type="submit" value="Toyota Price Calculator" /> 
+                <input type="reset" value="Reset Form" />
+            </div>
+        </form>
+    </div>
+    <script>
+        
+        var total = 0;
+
+        function calculateToyotaTotalPrice(event){
+            var price;
+
+            event.preventDefault(); // prevent the default behaviour of form submission
+
+            /*
+            It is common to use a $ in front of the variable name when the variable is a jQuery object.
+            */
+            var $selectedCheckbox = $("input:checkbox[name=Toyota]:checked");
+
+            //Remove the remark for either Method 1 or Method 2
+
+            /* Method 1: 
+            // Method 1: Using for loop
+            for (var i = 0; i < $selectedCheckbox.length; i++){
+
+                price =  $selectedCheckbox[i].value.split("M")[1]; // after spliting, the first element of the array is "R" and the second element of the array is the price.
+
+                total += parseFloat(price);
+            } 
+            //*/
+            
+            ///* Method 2: 
+            // Method 2:Using jQuery each() method
+            $selectedCheckbox.each(function(index, element){
+
+                price = element.value.split("M")[1]; // after spliting, the first element of the array is "R" and the second element of the array is the price.
+
+                total += parseFloat(price);
+            });
+            //*/
+
+            alert("Total price = RM" + total);
+            total = 0;
+        }
+    </script>
+</body>
+
+</html>

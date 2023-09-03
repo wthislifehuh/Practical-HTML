@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM,Event and Object </title>
+</head>
+<body>
+    <form onsubmit="addArrayFunction(event)">
+        <table>
+            <tr>
+                <td>
+                    Enter string value
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="str" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"></p>
+    <p id="ave"></p>
+        <script>
+            var arr = [];
+
+            var total = 0;
+
+            function addArrayFunction(event) {
+                event.preventDefault();
+
+                var str = document.getElementById("str").value;
+
+                total += str.length;
+                             
+                arr.push(str);
+
+                document.getElementById("str").value = "";
+
+                arr.sort();
+
+                document.getElementById("demo").innerHTML = arr.join('<br>');
+
+                document.getElementById("ave").innerHTML = "Average number of characters : " + (total / arr.length).toFixed(2);
+
+            }
+
+
+        </script>
+</body>
+</html>
+

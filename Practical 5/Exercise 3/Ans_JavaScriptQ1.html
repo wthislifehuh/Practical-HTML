@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM and Event</title>
+</head>
+
+<body>
+    <form onsubmit="employeeFunction(event)">
+        <table>
+            <tr>
+                <td>
+                    Sales
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="sales" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo">
+    <p>
+
+        <script>
+            function employeeFunction(event) {
+                event.preventDefault();
+
+
+                var BASE_PAY_Decimal = 900;
+                var COMMISSION_RATE_Decimal = 0.06;
+                var DEDUCTIONS_RATE_Decimal = 0.18;
+                var HOUSING_BUDGET_Decimal = 0.3;
+                var FOOD_CLOTHING_BUDGET_Decimal = 0.15;
+                var ENTERTAINMENT_BUDGET_Decimal = 0.5;
+                var MISCELLANEOUS_BUDGET_Decimal = 0.05;
+
+                var message = "";
+                var salesDecimal = parseFloat(document.getElementById("sales").value);
+                var commissionDecimal = salesDecimal * COMMISSION_RATE_Decimal;
+                var grossPayDecimal = commissionDecimal + BASE_PAY_Decimal;
+                var deductionsDecimal = grossPayDecimal * DEDUCTIONS_RATE_Decimal;
+                var netPayDecimal = grossPayDecimal - deductionsDecimal;
+                var housingDecimal = netPayDecimal * HOUSING_BUDGET_Decimal;
+                var foodclothingDecimal = netPayDecimal * FOOD_CLOTHING_BUDGET_Decimal;
+                var entertainmentDecimal = netPayDecimal * ENTERTAINMENT_BUDGET_Decimal;
+                var miscellaneousDecimal = netPayDecimal * MISCELLANEOUS_BUDGET_Decimal;
+
+
+                message = "Commission : " + commissionDecimal.toFixed(2);
+                message += "<br> Gross Pay : " + grossPayDecimal.toFixed(2);
+                message += "<br> Deductions : " + deductionsDecimal.toFixed(2);
+                message += "<br> Net Pay  : " + netPayDecimal.toFixed(2);
+                message += "<br> Housing : " + housingDecimal.toFixed(2);
+                message += "<br> Food and Clothing : " + foodclothingDecimal.toFixed(2);
+                message += "<br> Entertainment : " + entertainmentDecimal.toFixed(2);
+                message += "<br> Miscellaneous : " + miscellaneousDecimal.toFixed(2);
+                document.getElementById("demo").innerHTML = message;
+
+
+            }
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title> HTML DOM and Event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <img src="Practical5_images/flower0.jpg" alt="animation" id="animatePic" />
+    <br>
+    <input type="button" value="Show" id="btnShow" />
+    <input type="button" value="Hide" id="btnHide" />
+    <input type="button" value="Grow" id="btnGrow" />
+
+
+    <script>
+
+        var frameNo = 1;
+
+        $(function () {
+
+            $("#btnShow").click(function () {
+                $("#animatePic").show();
+            });
+
+            $("#btnHide").click(function () {
+                $("#animatePic").hide();
+            });
+
+            $("#btnGrow").click(function () {
+                $("#animatePic").show();
+                if (frameNo < 13) {
+                    $("#animatePic").attr("src", "Practical5_images/flower" + frameNo + ".JPG");
+                    frameNo++;
+                }
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>

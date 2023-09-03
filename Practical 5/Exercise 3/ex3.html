@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="display(event)">
+        <table>
+            <tr>
+                <td>Enter sales: </td>
+                <td><input type="text" id="sales" required></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" value="Submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+        <!-- <label>
+            Sales: <input type="text" name="sales" required>
+        </label> <br/> 
+        <button onclick=display()>Submit</button>-->
+    </form>
+    <p id="demo"></p>
+
+    <script>
+        function display(event) {
+            event.preventDefault();
+
+            const basePay = 900;
+            var sales = parseFloat(document.getElementById("sales").value);
+            var commission = 0.06 * sales;
+            var grossPay = basePay + commission;
+            var deduction = 0.18 * grossPay;
+            var netPay = grossPay - deduction;
+            var housing = 0.3 * netPay;
+            var foodAndClothing = 0.15 * netPay;
+            var entertainment = 0.5 * netPay;
+            var miscellaneous = 0.05 * netPay;
+            
+            document.getElementById("demo").innerHTML = 
+                "Commission : " + commission.toFixed(2) + "<br/>" +
+                "Gross Pay :" + grossPay.toFixed(2) + "<br/>" +
+                "Deductions :" + deduction.toFixed(2) + "<br/>" +
+                "Net Pay : " + netPay.toFixed(2) + "<br/>" +
+                "Housing : " + housing.toFixed(2) + "<br/>" +
+                "Food and Clothing : " + foodAndClothing.toFixed(2) + "<br/>" +
+                "Entertainment : " + entertainment.toFixed(2) + "<br/>" +
+                "Miscellaneous : " + miscellaneous.toFixed(2) + "<br/>";
+
+            // Cannot use document.writeln (will replace all the HTML content)
+            // document.writeln("Commission: " + commission.toFixed(2));
+            // document.writeln("Gross Pay :" + grossPay.toFixed(2));
+            // document.writeln("Deductions :" + deduction.toFixed(2));
+            // document.writeln("Net Pay : " + netPay.toFixed(2));
+            // document.writeln("Housing : " + housing.toFixed(2));
+            // document.writeln("Food and Clothing : " + foodAndClothing.toFixed(2));
+            // document.writeln("Entertainment : " + entertainment.toFixed(2));
+            // document.writeln("Miscellaneous : " + miscellaneous.toFixed(2));
+        }
+
+    </script>
+</body>
+
+</html>

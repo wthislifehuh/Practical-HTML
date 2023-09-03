@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Example 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+
+<body>
+    <div style="height:100px"></div>
+    <button type="button" class="btn btn-info">Primary button</button>
+    <a href="#" data-toggle="tooltip" title="Tooltip" data-placement="top">Tooltip for link</a>
+    <!--<a href="#" data-toggle="tooltip" title="Tooltip" data-placement="left">Tooltip for link</a>-->
+    <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            optionValue = $('[data-toggle="tooltip"]').data("placement");
+            $('[data-toggle="tooltip"]').tooltip({placement:optionValue});
+/*
+            $('[data-toggle="tooltip"]').each(function (i) {
+                optionValue = $(this).data("placement");
+                $(this).tooltip({ placement: optionValue });
+            })
+            */
+        });
+    </script>
+</body>
+
+</html>

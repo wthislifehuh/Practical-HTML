@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM,Event and Object</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Enter a sentence
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="str" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"></p>
+    <script>
+
+        $(function () {
+            $("form").submit(function (event) {
+                event.preventDefault();
+
+                var str = $("#str").val();
+
+                var words = str.split(" ");
+
+                words.sort(function (a, b) { //sorting function to inform the sort method to sort the array elements into ascending order in a case insensitive manner.
+                    if (a.toLowerCase() < b.toLowerCase()) {
+                        return -1;  // do not need to swap
+                    } else if (a.toLowerCase() > b.toLowerCase()) {
+                        return 1; //need to swap
+                    } else { //do nothing
+                        return 0;
+                    }
+                });
+
+                words.reverse(); //reverse method to reverse the elements in the array.
+
+                $("#demo").html(words.join('<br>'));
+
+                $("#str").val("");
+
+            });
+        });
+    </script>
+</body>
+
+</html>

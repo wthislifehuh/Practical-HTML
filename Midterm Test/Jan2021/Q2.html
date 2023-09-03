@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>q2</title>
+    <style>
+        .underlineThis {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Topic 1: How to Learn Basic Programming</h1>
+    <section>
+        <h2>1.1 Through Interactive Websites</h2>
+        <p>Websites like Codecademy and Freecodecamp are recommended for interactive coding sessions. These were built
+            with the idea that many beginners are stuck at the beginning when they start to learn to code while setting
+            up the development environment. These websites offer online text editors and compilers to begin coding
+            instantly.</p>
+    </section>
+    <section>
+        <h2>1.2 Focus on Learning Programming Basics</h2>
+        <p>
+            It is always suggested to make your fundamentals strong so as to be a pro coder. Learn the basics thoroughly
+            and try your hands on the code by making your own problems and solving them.
+        </p>
+        <section>
+            <h3>1.2.1 Examples</h3>
+            <p>
+                Some basic example:
+            </p>
+            <ol>
+                <li>Data Types</li>
+                <li>Variable</li>
+                <li>Function</li>
+            </ol>
+        </section>
+    </section>
+    <script>
+        //To do: Write the JavaScript here
+        document.getElementsByTagName("h1")[0].classList.add("underlineThis");
+        // More than one element, need to use loop
+        // document.getElementsByTagName("h2").classList.add("underlineThis");
+        document.getElementsByTagName("h1")[0].style.color = "green";
+        // document.getElementsByTagName("h2").style.color = "red";
+        
+        // Loop through each h2
+        var h2Elements = document.getElementsByTagName("h2");
+        for (var i = 0; i < h2Elements.length; i++) {
+            h2Elements[i].classList.add("underlineThis");
+            h2Elements[i].style.color = "red";
+        }
+    </script>
+</body>
+
+</html>

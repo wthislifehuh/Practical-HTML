@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1(a)</title>
+</head>
+
+<body>
+    <label>
+        Student ID: <input type="text" name="studentID" id="studentID">
+    </label><br />
+    <button type="submit">Check</button>
+    <button type="reset">Clear</button>
+    <p id="result"></p>
+
+    <script>
+        document.querySelector("button[type=submit]").addEventListener("click", checkID);
+        function checkID() {
+            var studentID = document.getElementById("studentID").value;
+            var pattern = /^[0-9]{7}$/; // 7 digits, no characters, no space, no special characters
+            // /^ start of string
+            // [0-9] any digit
+            // {7} 7 times
+            // $/ end of string
+            if (pattern.test(studentID)) {
+                if (parseInt(studentID) % 2 == 0) {
+                    document.getElementById("result").innerHTML = "Use “Event handler properties” but do not use jQuery library.";
+                }
+                else {
+                    if (parseInt(studentID) % 3 == 0)
+                        document.getElementById("result").innerHTML = "Use “Inline event handlers” and use jQuery library.";
+                    else
+                        document.getElementById("result").innerHTML = "Use “addEventListener()” but do not use jQuery library.";
+                }
+            } else {
+                alert("Omit the characters in Student ID!");
+            }
+        }
+    </script>
+</body>
+
+</html>

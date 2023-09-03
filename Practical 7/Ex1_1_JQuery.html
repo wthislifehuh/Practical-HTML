@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML DOM,Event and Object</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Full name
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="fName" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Student Id
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="sId" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="gender" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Race
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="race" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Faculty
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="faculty" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Programme
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="programme" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"><p>
+  <script>       
+              $(function () {
+                $("form").submit(function (event) {
+                event.preventDefault();
+
+                    var fName = $("#fName").val();
+                    var sId = $("#sId").val();
+                    var gender = $("#gender").val();
+                    var race = $("#race").val();
+                    var faculty = $("#faculty").val();
+                    var programme = $("#programme").val();
+
+                    var student = { FullName: fName, StudentId: sId, Gender: gender, Race: race, Faculty: faculty, Programme: programme };
+
+                for (var key in student) {
+                    $("#demo").append(key + " : " + student[key] +"<br>");
+                }               
+
+                });
+              });
+        </script>
+</body>
+</html>

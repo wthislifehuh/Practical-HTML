@@ -8,25 +8,34 @@
 </head>
 
 <body>
+    <!-- ANS -->
     <script>
-
         var total = 0;
-
         for (var i = 1; i <= 5; i++) {
             var number = prompt("Please enter the " + i + " value", "0");
-
             var numberenter = parseFloat(number);
-
             document.write(i + " value entered: " + numberenter + "<br>");
-
             total += numberenter;
 
         }
-
-        var average = total / (i - 1);
-
+        var average = total / (i - 1);  // 6 - 1
         document.write("Average test score: " + average.toFixed(2));
     </script>
+
+    <!-- Practice -->
+    <script>
+        var scores;
+        var total= 0;
+        for(var i = 1; i <= 5; i++){
+            scores = prompt("Enter value"+i+":" );
+            document.write(i+" value entered: "+scores+"<br>");
+            total+=parseInt(scores);    // need to convert string to integer
+        }
+        average = total/5;
+        document.write("Average test score: "+ average.toFixed(2));
+        // toFixed(2) = 2 decimal places
+            
+        </script>
 </body>
 
 </html>

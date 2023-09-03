@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Cookies</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Email
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="email" id="email" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   Password
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="password" id="password" required>
+                </td>
+            </tr>          
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+          <script> 
+              $(function () {
+                $("form").submit(function (event) {
+                    event.preventDefault();
+
+                    var email = $("#email").val();
+
+                    var password = $("#password").val();
+
+                    var expDate = new Date();
+
+                    expDate.setMinutes(expDate.getMinutes() + 5);
+
+                    document.cookie = "email=" + email
+                        + "; expires=" + expDate.toUTCString();
+
+                    document.cookie = "password=" + password
+                        + "; expires=" + expDate.toUTCString();
+
+                    window.location.href = "jQueryQ1Detail.html";
+
+                });
+            });      
+        </script>
+</body></html>

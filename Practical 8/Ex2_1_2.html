@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Web Storage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>JSON</h1>
+    <div></div>
+
+    <script>
+        $(function () {
+
+            if (typeof (Storage) !== "undefined") {
+
+                var user = JSON.parse(sessionStorage.getItem("User"));//retrieve
+
+                if (user != null) {
+                    $("div").html(user.name + " " + user.age + "<br>" +
+                        user.car + "<br>" +
+                        user.address.street + ", " + user.address.city + "<br><i>" +
+                        user.hobbies[0] + " " + user.hobbies[1] + "</i>");
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

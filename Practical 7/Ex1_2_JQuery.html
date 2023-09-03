@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML DOM,Event and Object</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Full name
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="fName" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Parking Hours
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="hours" required>
+                </td>
+            </tr>          
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"><p>
+        <script>   
+            var objArray = [];
+
+              $(function () {
+                $("form").submit(function (event) {
+                    event.preventDefault();
+
+                    $("#demo").html("");
+
+                    var fName = $("#fName").val();
+                    var hours = parseFloat($("#hours").val());
+
+                    var obj = new Object();
+                    obj.FullName = fName;
+                    obj.ParkingHours = hours;
+                    obj.Charges = calculateCharges(hours);
+
+                    objArray.push(obj);
+                    
+                    objArray.sort(function (a, b) {
+                        return a.ParkingHours - b.ParkingHours;
+                    });
+
+                    objArray.reverse();
+               
+                    for (var i = 0; i < objArray.length; i++) {
+                        $("#demo").append(objArray[i].FullName + "  " + objArray[i].ParkingHours + "  " + objArray[i].Charges +"<br>");
+                    } 
+
+                   $("#fName").val("");
+                  $("#hours").val("");
+
+                });
+            });
+
+
+            function calculateCharges(hours) {
+                var charge = 0.0;
+
+                if (hours > 0.0 && hours <= 3.0)
+                    charge = 2.0;
+                else if (hours > 3.0) {
+                    charge = 2.0 + 0.5 * Math.ceil(hours - 3.0);
+
+                    if (charge > 10.0)
+                        charge = 10.0;
+                }
+
+                return charge;
+            }
+        </script>
+</body>
+</html>
+

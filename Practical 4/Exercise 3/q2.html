@@ -9,13 +9,18 @@
 
 <body>
     <script>
-
+        // ANS
         var fee = 2500;
-
         for (var i = 1; i <= 6; i++) {
             document.write("Fee for year " + i + " : " + fee.toFixed(2) + "<br>");
-
             fee += fee * 0.04;
+        }
+
+        // Practice
+        var charges = 2500;
+        for (var i = 1; i <= 6; i++) {
+            document.write("Fee for year " + i + " = " + charges.toFixed(2) + "<br/>");
+            charges *= 1.04  // charge for 4% each years
         }
     </script>
 </body>

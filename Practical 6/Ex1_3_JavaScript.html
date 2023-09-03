@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML DOM,Event and Object</title>
+</head>
+
+<body>
+    <form id="myForm">
+        <table>
+            <tr>
+                <td>
+                    Enter Start Date
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="date" id="start" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Enter End Date
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="date" id="end" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"></p>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", dateCompareFunction);
+
+        function dateCompareFunction(event) {
+            event.preventDefault();
+
+            var start = new Date(document.getElementById("start").value);
+
+            var end = new Date(document.getElementById("end").value);
+
+            if (start > end)
+                document.getElementById("demo").innerHTML = "start date (" + start + ") is greater than end date (" + end + ")";
+            else if (start < end)
+                document.getElementById("demo").innerHTML = "start date (" + start + " ) is less than end date (" + end + ")";
+            else
+                document.getElementById("demo").innerHTML = "start date (" + start + ") is equal to end date (" + end + ")";
+
+            document.getElementById("start").value = "";
+
+            document.getElementById("end").value = "";
+        }
+    </script>
+</body>
+
+</html>

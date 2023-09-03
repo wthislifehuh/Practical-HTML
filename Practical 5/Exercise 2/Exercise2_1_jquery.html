@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM and Event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    What is the object's mass:
+
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="txtMass" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo">
+    <p>
+
+        <script>
+            $(function () {
+                $("form").submit(function (event) {
+
+                    event.preventDefault();
+
+                    var mass = parseFloat($("#txtMass").val());
+
+                    var weight = mass * 9.8;
+
+                    var message = "";
+                    var color = "black";
+
+                    if (weight >= 1000) {
+                        message = "Too heavy.";
+                        color = "red";
+                    }
+                    else if (weight <= 10) {
+                        message = "Too light.";
+                        color = "green";
+                    }
+                    else
+                        message = "Neither heavy or light.";
+
+                    $("#demo").html("<h1>Object's weight = " + weight.toFixed(2) + ". " + message + "</h1>");
+                    $("#demo").css("color", color); // change css to text
+
+                });
+            });
+        </script>
+</body>
+
+</html>

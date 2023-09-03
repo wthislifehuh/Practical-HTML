@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount</title>
+</head>
+
+<body>
+    <p>
+        <label>
+            Enter Price: <input type="text" id="price" required>
+            (RM)
+        </label>
+    </p>
+    <p>
+        <label>
+            Enter Discount: <input type="text" id="discount" required>
+            (%)
+        </label>
+    </p>
+    <p>
+        <button id="getDiscountTotal">Get Discount Total</button>
+    </p>
+    <table>
+        <tr>
+            <td>
+                <p id="result" style="border: 1px solid black; width: 200px; height: 20px; text-align: center;"></p>
+            </td>
+            <td>
+                (RM)
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        document.querySelector("button").addEventListener("click", calculateDiscount);
+        function calculateDiscount(event) {
+            event.preventDefault();
+            var price = parseFloat(document.getElementById("price").value);
+            var discount = parseFloat(document.getElementById("discount").value);
+            var total = price - (price * (discount / 100));
+            document.getElementById("result").innerHTML = "RM" + total.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

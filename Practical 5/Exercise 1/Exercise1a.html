@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM and Event</title>
+</head>
+
+<body>
+    <h2>
+        Window confirm() Method
+    </h2>
+<!-- HTML Event Attributes -->
+    <button onclick="display()">Click me!</button>
+
+    <p id="demo"></p> <!-- try to change this p to h1 -->
+
+    <script>
+        function display() {
+
+            var doc;
+            var result = confirm("Press a button!");
+            if (result == true) {
+                doc = "<h1>OK was pressed.</h1>";
+            } else {
+                doc = "<h1>Cancel was pressed.</h1>";
+            }
+
+            document.getElementById("demo").innerHTML = doc; //try to change Text to HTML
+        }
+    </script>
+</body>
+
+</html>

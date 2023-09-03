@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Web Storage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="name" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   Phone
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="tel" id="phone" placeholder="XXX-XXXXXXX" pattern="\d{3}-\d{7,8}" required>
+                </td>
+            </tr>          
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+          <script> 
+              $(function () {
+                $("form").submit(function (event) {
+                    event.preventDefault();
+
+                    var name = $("#name").val();
+
+                    var phone = $("#phone").val();
+
+                    if (typeof (Storage) !== "undefined") {                       
+
+                        localStorage.setItem("User", name);
+
+                        sessionStorage.setItem("Phone", phone);
+
+                        window.location.href = "jQueryQ2Detail.html";
+                    }                 
+
+                });
+            });      
+        </script>
+</body>
+</html>

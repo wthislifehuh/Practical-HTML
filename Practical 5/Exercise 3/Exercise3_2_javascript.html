@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title> Exercise3_2</title>
+</head>
+
+<body>
+  <form>
+
+    <img src="Practical5_Images/8_Diamonds.jpg" alt="8_Diamonds" width="200" height="280"
+      onclick="NameofCard('8_Diamonds')">
+
+    <img src="Practical5_Images/2_Clubs.jpg" alt="2_Clubs" width="200" height="280" 
+      onclick="NameofCard('2_Clubs')">
+
+    <img src="Practical5_Images/King_Spades.jpg" alt="King_Spades" width="200" height="280"
+      onclick="NameofCard('King_Spades')">
+
+    <img src="Practical5_Images/Ace_Spades.jpg" alt="Ace_Spades" width="200" height="280"
+      onclick="NameofCard('Ace_Spades')">
+
+    <img src="Practical5_Images/Joker_Black.jpg" alt="Joker_Black" width="200" height="280"
+      onclick="NameofCard('Joker_Black')">
+
+  </form>
+
+  <p id="demo"></p>
+
+  <script>
+    function NameofCard(card) {
+
+      var message;
+
+      switch (card) {
+        case '8_Diamonds':
+          message = "Eight of Diamonds";
+          break;
+        case '2_Clubs':
+          message = "Two of Clubs";
+          break;
+        case 'King_Spades':
+          message = "King of Spades";
+          break;
+        case 'Ace_Spades':
+          message = "Ace of Spades";
+          break;
+        default:
+          message = "Joker of Black";
+          break;
+      }
+
+      document.getElementById("demo").innerText = message;
+    }
+  </script>
+</body>
+
+</html>

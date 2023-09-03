@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML DOM,Event and Object</title>
+</head>
+<body>
+    <form onsubmit="addFunction(event)">
+        <table>
+            <tr>
+                <td>
+                    Full name
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="fName" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Student Id
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="sId" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="gender" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Race
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="race" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Faculty
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="faculty" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Programme
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="programme" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"><p>
+ <script>
+        
+            function addFunction(event) {
+                event.preventDefault();
+
+                var fName = document.getElementById("fName").value;
+                var sId = document.getElementById("sId").value;
+                var gender = document.getElementById("gender").value;
+                var race = document.getElementById("race").value;
+                var faculty = document.getElementById("faculty").value;
+                var programme = document.getElementById("programme").value;
+            
+                var student = { FullName: fName, StudentId: sId, Gender: gender, Race: race, Faculty: faculty, Programme: programme };
+
+                for (var key in student) {
+                    document.getElementById("demo").innerHTML += key + " : " + student[key] +"<br>";
+                }                
+
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM and Event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</head>
+
+<body>
+    <form>
+        Enter name: <input type="text" name="fname" id="fname" required>
+        <input type="submit" value="Submit">
+    </form>
+    <p id="demo"></p>
+
+    <script>
+        $(function () {
+            $("form").submit(function (event) {
+                event.preventDefault();
+                $("#demo").html($("#fname").val()); // change html to text = fname.value()
+            });
+        });
+    </script>
+
+</body>
+
+</html>

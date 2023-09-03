@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML DOM,Event and Object</title>
+</head>
+<body>
+    <form onsubmit="addFunction(event)"> <!-- onsubmit inline method -->
+        <table>
+            <tr>
+                <td>
+                    Full name
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="fName" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Parking Hours
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="hours" required>
+                </td>
+            </tr>          
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"><p>
+        <script>   
+            var objArray = [];
+
+            function addFunction(event) {
+                event.preventDefault();
+
+                document.getElementById("demo").innerHTML = "";
+
+                var fName = document.getElementById("fName").value;
+                var hours = parseFloat(document.getElementById("hours").value);
+
+                var obj = new Object();
+                obj.FullName = fName;
+                obj.ParkingHours = hours;
+                obj.Charges = calculateCharges(hours);
+
+                objArray.push(obj);
+
+                objArray.sort(function (a, b) {
+                    return a.ParkingHours - b.ParkingHours; //>1, swap
+                });
+
+                objArray.reverse();
+
+                for (var i = 0; i < objArray.length; i++) {
+                    document.getElementById("demo").innerHTML +=objArray[i].FullName + "  " + objArray[i].ParkingHours + "  " + objArray[i].Charges + "<br>";
+                }
+
+               document.getElementById("fName").value="";
+             document.getElementById("hours").value="";
+
+            }
+
+
+            function calculateCharges(hours) {
+                var charge = 0.0;
+
+                if (hours > 0.0 && hours <= 3.0)
+                    charge = 2.0;
+                else if (hours > 3.0) {
+                    charge = 2.0 + 0.5 * Math.ceil(hours - 3.0);
+
+                    if (charge > 10.0)
+                        charge = 10.0;
+                }
+
+                return charge;
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = prompt("Enter a string:");
+        var reverseStr = reverseDigits(str);
+        document.write("The reverse of " + str + " is " + reverseStr);
+        
+        function reverseDigits(str){
+            var reverseStr="";
+            for(var i = 0; i < str.length; i++){
+                reverseStr = str.charAt(i) + reverseStr;
+            }
+            return reverseStr;
+        }
+    </script>
+</body>
+</html>

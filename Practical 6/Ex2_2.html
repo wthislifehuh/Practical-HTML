@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Ex2 Q2 </title>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Enter string value
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="str" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"></p>
+    <script>
+        document.querySelector("form").onsubmit = totalFunction;
+
+        function totalFunction(event) {
+            event.preventDefault();
+
+            var total = 0;
+
+            var str = document.getElementById("str").value;
+
+            var words = str.split(",");
+
+            for (var i = 0; i < words.length; i++){
+                total += parseFloat(words[i]);
+            }
+
+            // words.forEach(function (element) {
+            //     total+=parseInt(element);
+            //     });
+
+            document.getElementById("demo").innerHTML = "The sum is " + total;
+
+            document.getElementById("str").value = "";
+
+        }
+    </script>
+</body>
+
+</html>

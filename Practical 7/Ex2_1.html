@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Retail Price Calculator</title>
+
+</head>
+
+<body>
+	<h1 id="tit">Retail Price Calculator</h1>
+	<form>
+		<table border="1">
+			<tr>
+				<td>Cost</td>
+				<td><input id="inputCost" type="text" required></td>
+			</tr>
+			<tr>
+				<td>Markup Percentage</td>
+				<td><input id="inputMarkup" type="text" required></td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td><input id="btnCalculate" type="submit" value="Calculate"></td>
+			</tr>
+		</table>
+	</form>
+	<br />
+	<div id="display"></div>
+	<div id="display2"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		var objArray = [];
+
+
+		$(function () {
+
+			$("form").submit(function (event) {
+				event.preventDefault();
+
+				var inputCost = parseFloat($("#inputCost").val());
+				var inputMarkup = parseFloat($("#inputMarkup").val());
+
+				var retailPrice = inputCost + (inputCost * (inputMarkup / 100));
+
+				var find = false;
+
+				for (var i = 0; i < objArray.length; i++) {
+					if (objArray[i].cost == inputCost && objArray[i].markupPercentage == inputMarkup) {
+						find = true;
+
+						break;
+
+					}
+				}
+
+				if (find == true) {
+					alert("duplicate cost and markup percentage values exists");
+				}
+				else {
+					var obj = new Object();
+					obj.cost = inputCost;
+					obj.markupPercentage = inputMarkup;
+					obj.retailPrice = retailPrice;
+
+					objArray.push(obj);
+
+					displayData();
+
+					$("#inputCost").val("");
+					$("#inputMarkup").val("");
+					$("#inputCost").focus();
+				}
+
+
+			});
+
+
+		});
+
+
+		function displayData() {
+
+			var displayTable = "";
+
+			displayTable += "<table border=\"1\" id=\"displayData\"><tr><td width=\"300\">Cost (RM)</td><td width=\"200\">Markup Percentage (%)</td><td width=\"200\">Retail Price (RM)</td></tr>";
+
+
+
+			for (var i = 0; i < objArray.length; i++) {
+
+				displayTable += "<tr><td width=\"300\">" + objArray[i].cost.toFixed(2) + "</td><td width=\"200\">" + objArray[i].markupPercentage + "</td><td width=\"200\">" + objArray[i].retailPrice.toFixed(2) + "</td></tr>";
+			}
+
+
+			$("#display").html(displayTable + "</table>");
+			$("#displayData tr:odd").css("background-color", "green");
+
+			objArray.sort(function (a, b) {
+				return (a.markupPercentage - b.markupPercentage);
+			});
+
+			$("#display2").html("The highest is " + objArray[objArray.length - 1].markupPercentage + " and the lowest markup percentage is " + objArray[0].markupPercentage);
+
+
+		}
+
+	</script>
+</body>
+
+</html>

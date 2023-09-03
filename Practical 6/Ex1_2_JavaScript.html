@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> HTML DOM,Event and Object</title>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Enter a sentence
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" id="str" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <p id="demo"></p>
+    <script>
+        document.querySelector("form").onsubmit = addArrayFunction;
+
+        function addArrayFunction(event) {
+            event.preventDefault();
+
+            var str = document.getElementById("str").value;
+
+            var words = str.split(" ");
+
+            words.sort(function (a, b) {
+                if (a.toLowerCase() < b.toLowerCase()) {
+                    return -1;
+                } else if (a.toLowerCase() > b.toLowerCase()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
+
+            words.reverse();
+
+            document.getElementById("demo").innerHTML = words.join('<br>');
+
+            document.getElementById("str").value = "";
+
+        }
+    </script>
+</body>
+
+</html>

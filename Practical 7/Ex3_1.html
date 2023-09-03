@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Display Image from CatBoys</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <p >
+        <img id="result" src="" alt="artist" style="height: 30%; width: 30%;">
+    </p>
+    <script>
+        /*
+       $.get("https://api.catboys.com/img", function(data){
+           $("#result").attr("src", data.url);
+       })
+       */
+
+       $.ajax({
+           crossDomain: true,
+           type: "GET",
+           url: "https://api.catboys.com/img",
+           success: function(data, textStatus, jqXHR){
+            $("#result").attr("src", data.url);
+           }
+       })
+    </script>
+</body>
+
+</html>

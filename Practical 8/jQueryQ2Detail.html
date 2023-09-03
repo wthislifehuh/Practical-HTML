@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Web Storage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+     <h1></h1>
+ 
+    <script> 
+        $(function () {
+
+            if (typeof (Storage) !== "undefined") {
+               
+                $("h1").text(localStorage.getItem("User")
+                    + " " + sessionStorage.getItem("Phone"));//retrieve
+
+            }
+    });
+  </script> 
+</body>
+</html>
