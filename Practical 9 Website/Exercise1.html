@@ -17,10 +17,19 @@
     <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 
     <script type="text/javascript">
-        $(function () {
+        $(function () { //  jQuery document ready function
             optionValue = $('[data-toggle="tooltip"]').data("placement");
-            $('[data-toggle="tooltip"]').tooltip({placement:optionValue});
-/*
+            // elects all HTML elements with the data-toggle attribute set to "tooltip" and initializes tooltips for them
+            // activates Bootstrap's Tooltip component for those elements
+            $('[data-toggle="tooltip"]').tooltip({ placement: optionValue });
+            // $('#example').tooltip(options)
+            // Once initialized, these elements will display a tooltip when the user hovers over them.
+
+            /*  {placement:"right"}
+                {placement:"top"}
+                {placement:"bottom"}
+                */
+            /*  
             $('[data-toggle="tooltip"]').each(function (i) {
                 optionValue = $(this).data("placement");
                 $(this).tooltip({ placement: optionValue });

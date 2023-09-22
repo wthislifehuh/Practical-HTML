@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- HTML -->
+    <div class="container col-md-6">
+        <div class="h1">Monthly Contribution Form</div>
+        <form>
+            <div class="form-group">
+                <label for="month">Month</label>
+                <input type="text" id="month" class="form-control" placeholder="January" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="contribution">Month Contribution(RM) </label>
+                <input type="text" id="contribution" class="form-control" placeholder="1000.00">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+            <div class="alert alert-success" role="alert" style="display: none;">
+            </div>
+            <div class="form-group">
+                <a href="SetJ.html"><button type="button" class="btn btn-outline-primary">Go to Monthly Contribution List</button></a>
+            </div>
+        </form>
+    </div>
+    <!-- JQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap.js Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom Script -->
+    <script>
+        var count = 0;
+        $(function () {
+            $("form").submit(function (event) {
+                event.preventDefault();
+                if (!$("#contribution").val().match(/^\d+$/)) {
+                    alert("Please enter a valid Monthly Contribution in RM");
+                }
+                else {
+                    if (typeof (Storage) !== "undefined") {
+                        sessionStorage.setItem("count", ++count);
+                        var currentContribution = parseFloat($("#contribution").val());
+                        sessionStorage.setItem("contribution"+count, currentContribution);  // Store the contribution
+                        sessionStorage.setItem("month"+count, $("#month").val());   // Store month
+
+                        var changes = 0;    // Set default value
+                        if(count > 1){    // If there are more than one contribution are submitted       
+                            var lastValue = sessionStorage.getItem("contribution"+ (count - 1)); // Get the last value
+                            changes = currentContribution - lastValue;  // Calculate the changes
+                        }
+                        sessionStorage.setItem("change"+count, changes);    // Store monthly change
+                        
+                        // Show the contribution in alert box
+                        $('.alert').show();
+                        $('.alert').html("Monthly Change: " + changes.toFixed(2));
+                        // '.alert' = class selector
+                        // "alert" = element selector (like <alert> but not correct)
+                    }
+                    else {
+                        alert("Your Browser does not support the session storage");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

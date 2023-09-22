@@ -15,9 +15,7 @@
         $(function () {
 
             if (typeof (Storage) !== "undefined") {
-
                 var user = JSON.parse(sessionStorage.getItem("User"));//retrieve
-
                 if (user != null) {
                     $("div").html(user.name + " " + user.age + "<br>" +
                         user.car + "<br>" +

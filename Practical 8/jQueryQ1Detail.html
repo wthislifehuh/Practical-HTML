@@ -12,21 +12,50 @@
 
     <script>
         $(function () {
-
-            var email = getCookie("email"); //getCookie return empty string is cookie is not found
+            // To find cookies
+            var email = getCookie("email"); //getCookie return empty string if cookie is not found
             var password = getCookie("password"); //getCookie return empty string is cookie is not found
-
-            if (email != "" && password != "") {
-
-                $("h1").text(email + " " + password);
+            
+            if (email != "" && password != "") {    // if both email and password are present
+                $("h1").text(email + " " + password);   // set h1 text to the email and password
             }
             else {//either one of the cookies is not found
-                window.location.href = "jQueryQ1.html";
+                window.location.href = "jQueryQ1.html"; // Redirect to the new URL
             }
 
 
         });
 
+        // Get filtered cookies
+        function getCookie(cookieName) { // pass in cookiename as parameter
+            var name = cookieName + "=";    // variable with text to search for (cookieName + "=")
+            var cookieArray = document.cookie.split(';');   // split document cookie on semicolons into array
+            for (var i = 0; i < cookieArray.length; i++) {
+                // loop and read each value c = cookieArray[i])
+                var c = cookieArray[i];
+                // if the first character is empty, replace it with the next character
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) { // cookie found
+                    return c.substring(name.length, c.length);  // return value of the cookie
+                }
+            }
+            // If not found, return empty string
+            return "";
+        }
+
+        /*In JavaScript
+        document.addEventListener("DOMContentLoaded", function () {
+        var email = getCookie("email");
+        var password = getCookie("password");
+
+        if (email !== "" && password !== "") {
+            document.querySelector("h1").textContent = email + " " + password;
+            } else {
+                window.location.href = "jQueryQ1.html";
+            }
+        });
 
         function getCookie(cname) {
             var name = cname + "=";
@@ -41,7 +70,7 @@
                 }
             }
             return "";
-        }
+        }*/
     </script>
 </body>
 

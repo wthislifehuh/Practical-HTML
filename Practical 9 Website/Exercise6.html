@@ -24,8 +24,9 @@
 <body>
 
     <!-- Write your solution under this comment -->
-    <div class="bd-example">
+    <div class="bd-example">    <!-- Custom CSS -->
         <form class="needs-validation" novalidate>
+            <!-- Group 1 -->
             <div class="form-group">
                 <label for="exampleFormControlInput1">Email address</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
@@ -36,6 +37,7 @@
                     Please check your input data!
                 </div>
             </div>
+            <!-- Group 2 -->
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Example select</label>
                 <select class="form-control" id="exampleFormControlSelect1">
@@ -46,6 +48,7 @@
                     <option>5</option>
                 </select>
             </div>
+            <!-- Group 3 -->
             <div class="form-group">
                 <label for="exampleFormControlSelect2">Example multiple select</label>
                 <select multiple class="form-control" id="exampleFormControlSelect2">
@@ -61,6 +64,7 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <div>
+                <!-- <button class="btn btn-success" type="submit">SUBMIT</button> -->
                 <input type="submit" class="btn btn-danger" value="SUBMIT">
             </div>
         </form>
@@ -87,7 +91,7 @@
                             event.preventDefault();
                             event.stopPropagation();
                         }
-                        form.classList.add('was-validated');
+                        form.classList.add('was-validated');    // Bootstrap validation: will trigger the validation messages (valid-feedback & invalid-feedback)
                     }, false);
                 })
 

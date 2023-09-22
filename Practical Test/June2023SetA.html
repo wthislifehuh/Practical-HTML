@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UCCD2323_CS_HoJoeEe_21ACB03160</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!-- HTML -->
+    <div class="container col-md-6">
+      <div class="h2">Gender Identifier Based on IC</div>
+      <form>
+        <!-- IC -->
+        <div class="form-group">
+          <label>Malaysian Identity Card Number (IC):</label>
+          <input
+            type="text"
+            class="form-control"
+            id="ic"
+            name="ic"
+            placeholder="xxxxxx-xx-xxxx"
+            required
+          />
+          <!-- Feedback -->
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please fill in the correct format!</div>
+        </div>
+        <!-- Buttons -->
+        <div class="form-group">
+          <input class="btn btn-primary" type="submit" value="Submit" />
+          <input class="btn btn-primary" type="reset" value="Clear" />
+        </div>
+        <div id="result"></div>
+      </form>
+    </div>
+
+    <!-- JQuery -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom Script -->
+    <script>
+      $(function () {
+        $("form").submit(function (event) {
+          event.preventDefault(); // prevent form submission
+
+          var id = $("#ic").val(); // read IC from user input
+
+          // To test if the input is in the correct format
+          var pattern = /^[0-9]{6}-[0-9]{2}-[0-9]{4}$/;
+
+          // Check if the ID does not match the pattern
+          if (!pattern.test(id)) {
+            // Display Invalid Feedback in Bootstrap
+            $("#ic").removeClass("is-valid").addClass("is-invalid");
+            $(".invalid-feedback").show();
+          } // Check if the browser supports localStorage
+          else if (typeof Storage !== "undefined") {
+            // To show valid feedback if the ID matches the pattern
+            $("#ic").removeClass("is-invalid").addClass("is-valid");
+            $(".valid-feedback").show();
+
+            // Save the IC in localStorage
+            sessionStorage.setItem("IC", id);
+
+            // To check if the user is a Male(odd) or Female(even)
+            var IC = sessionStorage.getItem("IC");
+            var num = parseInt(sessionStorage.getItem("IC").charAt(13));
+            var gender = "gender";
+            if (num % 2 == 0) {
+              // Even
+              gender = "Female";
+            } else {
+              // Odd
+              gender = "Male";
+            }
+            // Display result in div
+            $("#result").html(
+              "Malaysian Identity Card : " + IC + "<br> Gender : " + gender
+            );
+          } else {
+            $(".invalid-feedback")
+              .text("Your browser does not support localStorage!")
+              .show();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>HTML5 Web Storage</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+
 <body>
     <form>
         <table>
@@ -21,7 +23,7 @@
             </tr>
             <tr>
                 <td>
-                   Phone
+                    Phone
                 </td>
                 <td>
                     :
@@ -29,7 +31,7 @@
                 <td>
                     <input type="tel" id="phone" placeholder="XXX-XXXXXXX" pattern="\d{3}-\d{7,8}" required>
                 </td>
-            </tr>          
+            </tr>
             <tr>
                 <td></td>
                 <td></td>
@@ -37,26 +39,22 @@
             </tr>
         </table>
     </form>
-          <script> 
-              $(function () {
-                $("form").submit(function (event) {
-                    event.preventDefault();
+    <script>
+        $(function () {
+            $("form").submit(function (event) {
+                event.preventDefault();
 
-                    var name = $("#name").val();
+                var name = $("#name").val();    // retrieve the name value from the input field
+                var phone = $("#phone").val();  // retrieve the phone value from the input field
 
-                    var phone = $("#phone").val();
-
-                    if (typeof (Storage) !== "undefined") {                       
-
-                        localStorage.setItem("User", name);
-
-                        sessionStorage.setItem("Phone", phone);
-
-                        window.location.href = "jQueryQ2Detail.html";
-                    }                 
-
-                });
-            });      
-        </script>
+                if (typeof (Storage) !== "undefined") { // check if the browser support
+                    localStorage.setItem("User", name);
+                    sessionStorage.setItem("Phone", phone); // save into storage    
+                    window.location.href = "jQueryQ2Detail.html";   // redirect to new page
+                }
+            });
+        });      
+    </script>
 </body>
+
 </html>

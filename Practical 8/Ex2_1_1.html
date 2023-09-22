@@ -32,15 +32,12 @@
             };
 
             $("form").submit(function (event) {
-
                 event.preventDefault();
 
-                if (typeof (Storage) !== "undefined") {
-
-                    sessionStorage.setItem("User", JSON.stringify(user));
-
+                if (typeof (Storage) !== "undefined") { // check if browser support storage
+                    sessionStorage.setItem("User", JSON.stringify(user));   
+                     // stringify: convert data into string to exchange data to/from a web server
                     alert("Stored successfully!");
-
                 }
 
             });

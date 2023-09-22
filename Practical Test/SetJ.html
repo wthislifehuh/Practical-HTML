@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container col-md-6">
+        <table class="table">
+            <thead class="table-dark">
+                <th scope="col">Month</th>
+                <th scope="col">Monthly Contribution</th>
+                <th scope="col">Monthly Change</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <div class="alert alert-success" role="alert" style="display: none;">
+        </div>
+
+        <div>
+            <a href="June2022SetJ.html"><button class="btn btn-outline-primary">Go to Monthly Contribution
+                    Form</button></a>
+        </div>
+    </div>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <!-- Bootstrap.js Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            if (typeof (Storage) !== "undefined") { // Check if the browser supports the Storage
+                var sum = 0;
+                var average = 0;
+                var count = sessionStorage.getItem("count");
+                for (let i = 1; i <= count; i++) {
+                    // Create a new row and append it to the table
+                    var newRow = "<tr><td>" + sessionStorage.getItem("month" + i) + "</td>" +
+                        "<td>" + sessionStorage.getItem("contribution" + i) + "</td>" +
+                        "<td>" + sessionStorage.getItem("change" + i) + "</td></tr>";
+                    // So that will not overwrite the existing row
+                    $("tbody").append(newRow);
+                    sum += parseFloat(sessionStorage.getItem("change" + i));
+                }
+                if (sum > 0) {
+                    var average = sum / count;
+                }
+
+                $('.alert').show();
+                $('.alert').html("The average Monthly Change is : " + average.toFixed(2));
+            }
+            else {
+                alert("Your browser does not support localStorage!");
+            }
+
+        });
+    </script>
+</body>
+
+</html>

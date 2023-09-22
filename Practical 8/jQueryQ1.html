@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>JavaScript Cookies</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
+
 <body>
     <form>
         <table>
@@ -21,7 +23,7 @@
             </tr>
             <tr>
                 <td>
-                   Password
+                    Password
                 </td>
                 <td>
                     :
@@ -29,7 +31,7 @@
                 <td>
                     <input type="password" id="password" required>
                 </td>
-            </tr>          
+            </tr>
             <tr>
                 <td></td>
                 <td></td>
@@ -37,28 +39,48 @@
             </tr>
         </table>
     </form>
-          <script> 
-              $(function () {
-                $("form").submit(function (event) {
-                    event.preventDefault();
+    <script>
+        $(function () { // Shorthand for $(document).ready( function (e) {<code>})
+            $("form").submit(function (event) { // document.getElementById("form").addEventListener("submit", function (e) {});
+                event.preventDefault();
 
-                    var email = $("#email").val();
+                // Get email and password value
+                var email = $("#email").val();
+                var password = $("#password").val();
 
-                    var password = $("#password").val();
+                // Set Expiry date
+                var expDate = new Date();
+                expDate.setMinutes(expDate.getMinutes() + 5);
 
-                    var expDate = new Date();
+                // Store email and password into cookies
+                document.cookie = "email=" + email + "; expires=" + expDate.toUTCString();
+                document.cookie = "password=" + password + "; expires=" + expDate.toUTCString();
 
-                    expDate.setMinutes(expDate.getMinutes() + 5);
+                // instruct the web browser to load and display the content of the new URL in the current window or tab
+                // Redirect to the new URL
+                window.location.href = "jQueryQ1Detail.html";
 
-                    document.cookie = "email=" + email
-                        + "; expires=" + expDate.toUTCString();
+            });
+        });
 
-                    document.cookie = "password=" + password
-                        + "; expires=" + expDate.toUTCString();
+        /*In JavaScript
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("form").addEventListener("submit", function (event) {
+                event.preventDefault();
 
-                    window.location.href = "jQueryQ1Detail.html";
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
 
-                });
-            });      
-        </script>
-</body></html>
+                var expDate = new Date();
+                expDate.setMinutes(expDate.getMinutes() + 5);
+
+                document.cookie = "email=" + email + "; expires=" + expDate.toUTCString();
+                document.cookie = "password=" + password + "; expires=" + expDate.toUTCString();
+
+                window.location.href = "jQueryQ1Detail.html";
+            });
+});*/
+    </script>
+</body>
+
+</html>

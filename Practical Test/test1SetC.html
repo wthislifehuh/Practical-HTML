@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"></head>
+
+<body>
+    <form>
+        <div class="col-md-2 form-group">
+            <label for="studentId">Student ID: </label>
+            <input type="text" class="form-control" id="studentId" aria-describedby="idNote" placeholder="Enter student ID">
+            <small id="idNote" class="form-text text-muted">We'll never share your ID with anyone else</small>
+        </div>
+        <div class="col-md-2 form-group">
+            <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
+            <button type="button" class="btn btn-primary" id="clearButton">Clear</button>
+        </div>
+    </form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $("#submitButton").click(function (event) {
+                event.preventDefault();
+                var id = $("#studentId").val();
+
+                if (!isNaN(id)) {
+                    if (typeof (Storage) !== "undefined") {
+                        localStorage.setItem("Id", id);
+                        window.location.href = "test1SetC2.html";
+                    }
+                }
+                else {
+                    alert("Omit the characters in Student ID!");
+                    $("#studentId").val("");
+                }
+            });
+
+        });
+        $(function () {
+            $("#clearButton").click(function (event) {
+                event.preventDefault();
+                $("#studentId").val("");
+            });
+        });
+    </script>
+</body>
+
+</html>

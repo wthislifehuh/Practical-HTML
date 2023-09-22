@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lim Xuan Prac Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="h1">Student Marking Grade</div>
+
+        <form>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" placeholder="Enter Subject">
+            </div>
+
+            <div class="form-group">
+                <label for="mark">Mark</label>
+                <input type="number" class="form-control" id="mark" placeholder="Enter Mark">
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
+        </form>
+
+        <br>
+        <div class="h6" id="gradeResult"></div>
+        <div class="h6" id="avgResult"></div>
+
+    </div>
+
+    <script>
+        $(function () {
+            $("form").submit(function (event) {
+                event.preventDefault();
+
+                // read input
+                var subject = $("#subject").val();
+                var mark = $("#mark").val();
+
+                // clear all input and output
+                $("#gradeResult").text("");
+                $("#avgResult").text("");
+
+                $("#subject").val("");
+                $("#mark").val("");
+
+                // determine grade
+                if (mark > 100)
+                    var grade = "Invalid Mark";
+                else if (mark >= 70)
+                    var grade = 'A';
+                else if (mark >= 60)
+                    var grade = 'B';
+                else if (mark >= 50)
+                    var grade = 'C';
+                else if (mark >= 40)
+                    var grade = 'D';
+                else if (mark >= 0)
+                    var grade = 'F';
+                else
+                    var grade = "Invalid Mark";
+
+                // display grade
+                $("#gradeResult").text("Grade of Mark Entered (" + subject + ": " + mark + ") = " + grade);
+
+                // check if invalid mark
+                if (grade.length != 1) {
+                    alert("Invalid Mark Detected. Fail to Insert into Session Storage");
+                    return; // direct return and no need to store object if invalid mark
+                }
+
+                // check if web storage is available and grade is valid
+                if (typeof (Storage) !== "undefined" && grade.length == 1) {
+
+                    // retrieve or create list as JavaScript object
+                    if ("List" in sessionStorage)
+                        var list = JSON.parse(sessionStorage.getItem("List"));
+                    else {
+                        var list = [];
+                    }
+
+                    // create object
+                    var obj = {
+                        Subject: subject,
+                        Mark: mark
+                    }
+
+                    // update and change list to JSON object
+                    list.push(obj);
+                    list = JSON.stringify(list);
+
+                    // update list in Session Storage
+                    sessionStorage.setItem("List", list);
+
+                    // alert user display successful
+                    alert("Successfully Inserted into Session Storage");
+
+                    // retrieve the updated list 
+                    list = JSON.parse(sessionStorage.getItem("List"));
+
+                    // calculate average mark
+                    var total = 0.0;
+                    for (var i = 0; i < list.length; i++)
+                        total += parseFloat(list[i].Mark);
+                    var avg = total / list.length;
+
+                    // display average mark with how many subject
+                    $("#avgResult").text("Average Mark for " + list.length + " Subject = " + avg);
+                }
+                else // tell user web storage is not supported
+                    alert("Your Web Browser DOES NOT Support Web Storage. Fail to Insert into Session Storage");
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

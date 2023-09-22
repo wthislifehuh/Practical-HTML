@@ -83,15 +83,10 @@
 
 
             $("form").submit(function (event) {
-
                 event.preventDefault();
-
                 if (typeof (Storage) !== "undefined") {
-
                     sessionStorage.setItem("Items", JSON.stringify(items));
-
                     alert("Stored successfully!");
-
                 }
 
             });

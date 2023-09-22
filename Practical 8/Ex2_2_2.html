@@ -21,24 +21,28 @@
 
     <script>
         $(function () {
-
             if (typeof (Storage) !== "undefined") {
-
                 var items = JSON.parse(sessionStorage.getItem("Items"));//retrieve
-
+                
+                // If there are items present
                 if (items != null) {
-
-                    items.sort(function (b, a) {
+                    // Items = a , b 
+                    // sort method expects a comparison function as an argument (defining the sorting order)
+                    items.sort(function (b, a) {    // represent two items from the items array that are being compared
                         if (a.item.toLowerCase() < b.item.toLowerCase())
                             return -1;
+                            // tells the sort method to place a before b in the sorted array.
                         else if (a.item.toLowerCase() > b.item.toLowerCase())
                             return 1;
+                            // tells the sort method to place b before a in the sorted array.
                         else 
                             return 0;
+                        // have the same sorting order, and their relative positions won't change.
                     })
                 
                     //items.reverse();
 
+                    // Create table for sorting
                     for (var i = 0; i < items.length; i++) {
                         $("#myTable tbody").append("<tr><td>" + items[i].item + "</td><td>" + items[i].count + "</td></tr>");
                     }

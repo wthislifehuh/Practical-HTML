@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Web Storage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 id="h1"></h1>
+    <h1 id="h2"></h1>
+    <script>
+        $(function () {
+            if (typeof (Storage) !== "undefined") {
+                var id = parseInt(localStorage.getItem("Id"));
+                var evenOrOdd;
+                if (id % 2 == 0) {
+                    evenOrOdd = "Even";
+                }
+                else {
+                    evenOrOdd = "Odd";
+                }
+
+                $("#h1").text("Student ID: " + id);
+                $("#h2").text(evenOrOdd);
+            }
+        });
+    </script>
+</body>
+
+</html>
