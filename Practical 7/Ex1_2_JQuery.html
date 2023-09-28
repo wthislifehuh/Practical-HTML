@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>HTML DOM,Event and Object</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+
 <body>
     <form>
         <table>
@@ -29,7 +31,7 @@
                 <td>
                     <input type="text" id="hours" required>
                 </td>
-            </tr>          
+            </tr>
             <tr>
                 <td></td>
                 <td></td>
@@ -37,11 +39,12 @@
             </tr>
         </table>
     </form>
-    <p id="demo"><p>
-        <script>   
+    <p id="demo">
+    <p>
+        <script>
             var objArray = [];
 
-              $(function () {
+            $(function () {
                 $("form").submit(function (event) {
                     event.preventDefault();
 
@@ -56,19 +59,19 @@
                     obj.Charges = calculateCharges(hours);
 
                     objArray.push(obj);
-                    
+
                     objArray.sort(function (a, b) {
                         return a.ParkingHours - b.ParkingHours;
                     });
 
                     objArray.reverse();
-               
-                    for (var i = 0; i < objArray.length; i++) {
-                        $("#demo").append(objArray[i].FullName + "  " + objArray[i].ParkingHours + "  " + objArray[i].Charges +"<br>");
-                    } 
 
-                   $("#fName").val("");
-                  $("#hours").val("");
+                    for (var i = 0; i < objArray.length; i++) {
+                        $("#demo").append(objArray[i].FullName + "  " + objArray[i].ParkingHours + "  " + objArray[i].Charges + "<br>");
+                    }
+
+                    $("#fName").val("");
+                    $("#hours").val("");
 
                 });
             });
@@ -90,5 +93,5 @@
             }
         </script>
 </body>
-</html>
 
+</html>

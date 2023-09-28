@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <p >
+    <p>
         <img id="result" src="" alt="artist" style="height: 30%; width: 30%;">
     </p>
     <script>
@@ -19,14 +19,14 @@
        })
        */
 
-       $.ajax({
-           crossDomain: true,
-           type: "GET",
-           url: "https://api.catboys.com/img",
-           success: function(data, textStatus, jqXHR){
-            $("#result").attr("src", data.url);
-           }
-       })
+        $.ajax({
+            crossDomain: true,
+            type: "GET",
+            url: "https://api.catboys.com/img",
+            success: function (data, textStatus, jqXHR) {
+                $("#result").attr("src", data.url);
+            }
+        })
     </script>
 </body>
 

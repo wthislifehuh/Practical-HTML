@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>HTML DOM,Event and Object</title>
 </head>
+
 <body>
     <form onsubmit="addFunction(event)"> <!-- onsubmit inline method -->
         <table>
@@ -28,7 +30,7 @@
                 <td>
                     <input type="text" id="hours" required>
                 </td>
-            </tr>          
+            </tr>
             <tr>
                 <td></td>
                 <td></td>
@@ -36,8 +38,9 @@
             </tr>
         </table>
     </form>
-    <p id="demo"><p>
-        <script>   
+    <p id="demo">
+    <p>
+        <script>
             var objArray = [];
 
             function addFunction(event) {
@@ -62,11 +65,11 @@
                 objArray.reverse();
 
                 for (var i = 0; i < objArray.length; i++) {
-                    document.getElementById("demo").innerHTML +=objArray[i].FullName + "  " + objArray[i].ParkingHours + "  " + objArray[i].Charges + "<br>";
+                    document.getElementById("demo").innerHTML += objArray[i].FullName + "  " + objArray[i].ParkingHours + "  " + objArray[i].Charges + "<br>";
                 }
 
-               document.getElementById("fName").value="";
-             document.getElementById("hours").value="";
+                document.getElementById("fName").value = "";
+                document.getElementById("hours").value = "";
 
             }
 
@@ -87,4 +90,5 @@
             }
         </script>
 </body>
+
 </html>

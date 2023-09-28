@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>jQuery getJSON() Method</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+
 <body>
     <h1>JSON</h1>
     <table border="1" id="myTable">
@@ -24,7 +26,6 @@
 
             $.getJSON(aPI)
                 .done(function (data) {
-
                     for (var i = 0; i < data.members.length; i++) {
 
                         $('#myTable tbody').append("<tr><td>"
@@ -36,4 +37,5 @@
         });
     </script>
 </body>
+
 </html>
