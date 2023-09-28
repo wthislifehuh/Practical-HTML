@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc</title>
+</head>
+
+<body>
+    <!-- Label and input -->
+    <label>List your fruits. Seperate each fruit with a comma (eg. Banana, Orange, Pineapple, Apple): </label>
+    <br>
+    <input type="text" name="fruit" id="fruit">
+    <br>
+    <button type="submit" id="submit">Submit</button>
+    <button type="reset" id="reset">Reset</button>
+    <ul></ul>
+
+    <!-- Using Table -->
+    <!-- <table>
+        <tr>
+            <td>List your fruits. Seperate each fruit with a comma (eg. Banana, Orange, Pineapple, Apple): </td>
+        </tr>
+        <tr>
+            <td><input type="text" id="result"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" id="submit" value="Submit"></td>
+            <td><input type="reset" id="clear" value="Clear"></td>
+        </tr>
+    </table> -->
+
+
+    <script type="text/javascript">
+        document.getElementById("submit").addEventListener("click", function () {
+            var fruitList = document.getElementById("fruit").value;
+            var fruit = fruitList.split(",");
+
+            // WAY 1: To sort the fruit and for case sensitive
+            // fruit.sort(function (a, b) {
+            //     if (a.toLowerCase() < b.toLowerCase()) {
+            //         return -1;
+            //     } else if (a.toLowerCase() > b.toLowerCase()) {
+            //         return 1;
+            //     } else {
+            //         return 0;
+            //     }
+            // });
+            // fruit.reverse();
+
+            // WAY 2: To sort the fruit without case sensitive(group lower case and upper case differently)
+            // fruit.sort();
+            // fruit.reverse();
+
+            // WAY 2: // Trim white spaces from each fruit and sort without case sensitivity(lower case)
+            fruit.sort(function (a, b) {
+                return b.trim().localeCompare(a.trim());    // Descending order
+                // return a.trim().localeCompare(b.trim());    // Ascending order
+            })
+
+            var ul = document.querySelector("ul");
+            ul.innerHTML = ""; // Clear the previous list items
+
+            // WAY1: Use appendChild to prevent overwrite
+            // for (var i = 0; i < fruit.length; i++) {
+            //     var li = document.createElement("li");
+            //     li.textContent = fruit[i];
+            //     ul.appendChild(li);
+            // }
+
+            // WAY2: Use innerHTML
+            for (var i = 0; i < fruit.length; i++) {
+                ul.innerHTML+="<li>"+fruit[i]+"</li>";
+            }
+            // WRONG TO just li.innerHTML = "<li>"+fruit[i]+"</li>"; as it will overwrite the content
+
+            document.getElementById("fruit").value = "";    // Clear the previous input
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var amount = parseFloat(prompt("Enter Watt amount: "));
+        if (!/^[0-9]+$/.test(amount)) {
+            alert("Please enter a valid amount!");
+        } else {
+            var payment = 0.00;
+            if (amount <= 200000) {
+                payment = 0.00;
+            } else if (amount <= 500000) {
+                payment = amount / 200;
+            } else if (amount <= 700000) {
+                payment = amount / 100;
+            } else if (amount <= 800000) {
+                payment = amount / 50;
+            } else if (amount <= 1000000) {
+                payment = amount / 10;
+            } else {
+                payment = (amount / 10) * 2;
+            }
+            document.writeln("Your payment is $" + payment.toFixed(2));
+        }
+    </script>
+</body>
+
+</html>

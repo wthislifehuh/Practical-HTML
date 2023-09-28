@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Q5(a)</title>
+</head>
+
+<body>
+    <h1 id="content"></h1>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        // JavaScript
+        if (typeof Storage !== "undefined") {
+            if (localStorage.getItem("visited") === null) {
+                localStorage.setItem("visited", "0");
+            }
+        }
+        else {
+            alert("Your browser does not support web storage!");
+        }
+        count = parseInt(localStorage.getItem("visited")) + 1;
+        localStorage.setItem("visited", count);
+        document.getElementById("content").innerHTML += "You have visited this page " + count + " times.";
+
+        // Using JQuery
+        // $("#content").html("You have visited this page " + count + " times.");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="date" id="date" name="date">
+        <button id="submit" name="submit" type="submit">Calculate Age</button>
+        <p></p>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("form").submit(function (event) {
+                event.preventDefault(); // Prevent form submission
+                var inputDate = new Date($("#date").val());
+                var currentDate = new Date();
+                var age = currentDate.getFullYear() - inputDate.getFullYear();
+
+                // Check if the birthday hasn't occurred this year yet
+                if (
+                    currentDate.getMonth() < inputDate.getMonth() ||
+                    (currentDate.getMonth() === inputDate.getMonth() &&
+                        currentDate.getDate() < inputDate.getDate())
+                ) {
+                    age--;
+                }
+
+                $("p").html("Age: " + age + " years");
+            })
+        })
+
+        var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var dayOfWeekString = daysOfWeek[nowdate.getDay()];
+    </script>
+</body>
+
+</html>

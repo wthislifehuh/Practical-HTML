@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc</title>
+</head>
+
+<body>
+    <!-- <table>
+        <tr>
+            <th colspan="2">
+                <h2>Please provide your preference: </h2>
+            </th>
+        </tr>
+        <tr>
+            <td>Background colour:</td>
+            <td><input type="text" name="color" id="color"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save"><input type="reset" value="Clear"></td>
+        </tr>
+    </table> -->
+    <h2>Please provide your preference: </h2>
+    <label>Background colour:</label>
+    <input type="text" id="color">
+    <br>
+    <input type="submit" value="Submit" id="submit">
+    <input type="reset" value="Clear">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        // JavaScript
+        // document.getElementById("submit").addEventListener("click", function(){
+        //     var color = document.getElementById("color").value;
+        //     if(typeof(Storage) !== "undefined"){
+        //         localStorage.setItem("color", color);
+        //         document.querySelector("body").style.backgroundColor = localStorage.getItem("color");
+        //     }
+        //     else{
+        //         alert("Sorry, your browser does not support Web Storage...")
+        //     }
+        // })
+
+        // JQuery
+        $(function(){
+            $("#submit").click(function(){
+                var color = $("#color").val();
+                if(typeof(Storage) !== "undefined"){
+                    localStorage.setItem("color", color);
+                    $("body").css("background-color", localStorage.getItem("color"));
+                }
+                else{
+                    alert("Your browser does not support Web Storage...")
+                }
+            });
+        })
+    </script>
+
+</body>
+
+</html>

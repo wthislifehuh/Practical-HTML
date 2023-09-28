@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Q5(b)</title>
+</head>
+
+<body>
+    <div>
+        <p data-fruitsid="1">Apple</p>
+        <p data-fruitsid="2">Orange</p>
+        <p data-fruitsid="3">Banana</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        // JavaScript
+        // fruitArray = document.getElementsByTagName("p");
+        fruitArray = document.querySelector("p");
+        for (let i = 0; i < fruitArray.length; i++) {
+            fruitArray[i].addEventListener("click", function () {
+                alert(fruitArray[i].getAttribute("data-fruitsid"));
+            });
+        }
+
+        // Using jQuery
+        $(function () {
+            // Use jQuery to select all <p> elements
+            var $fruitArray = $("p");
+
+            // Attach a click event handler to each <p> element
+            $fruitArray.click(function () {
+                var fruitId = $(this).attr("data-fruitsid");
+                alert(fruitId);
+            });
+        });
+        fruits = $("p");
+
+    </script>
+</body>
+
+</html>
+</body>

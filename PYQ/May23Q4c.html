@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with Captions</title>
+</head>
+
+<body>
+    <video controls width="640" height="360">
+        <!-- Video Source -->
+        <source src="your-video.mp4" type="video/mp4">
+
+        <!-- Default Chinese Caption -->
+        <track label="Chinese" kind="subtitles" srclang="zh" src="chinese-captions.vtt" default>
+
+        <!-- English Caption -->
+        <track label="English" kind="subtitles" srclang="en" src="english-captions.vtt">
+    </video>
+
+    <!-- Two <track> elements are used to provide captions. One is for the default "Chinese" caption, and the other is for "English" caption.
+
+label: This attribute specifies the language label for the caption track.
+kind: The kind attribute is set to "subtitles" to indicate that it's a subtitle/caption track.
+srclang: This attribute specifies the language of the caption track using language codes (e.g., "zh" for Chinese, "en" for English).
+src: You should replace "chinese-captions.vtt" and "english-captions.vtt" with the actual paths to your caption files. Caption files are typically in WebVTT (.vtt) format.
+The default attribute on the Chinese caption track makes it the default caption track that will be displayed initially.
+
+With this markup, users can select between "English" and "Chinese" captions using the video player's built-in controls, and "Chinese" captions will be the default choice.
+ -->
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Price</title>
+</head>
+
+<body>
+    <form>
+        <label for="price">Unit Price(RM): </label>
+        <input type="text" name="price" id="price">
+        <br>
+        <label for="quantity">Quantity: </label>
+        <input type="text" name="quantity" id="quantity">
+        <br>
+        <label for="total">Total Price(RM): </label>
+        <input type="text" name="total" id="total">
+        <br>
+        <button type="submit">Calculate</button>
+        <button type="reset">Clear</button>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("form").submit(function (event) {
+                event.preventDefault();
+
+                var price = $("#price").val();
+                var quantity = $("#quantity").val();
+                var total = price * quantity;
+                $("#total").val(total);
+            })
+        })
+    </script>
+</body>
+
+</html>

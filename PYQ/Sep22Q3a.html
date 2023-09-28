@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form">
+        <label for="price">Enter Price: </label>
+        <input type="text" name="price" id="price">(RM)
+        <br>
+        <label for="discount" >Discount</label>
+        <input type="text" name="discount" id="discount">(%)
+        <br>
+        <button type="submit" name="getDiscount" value="getDiscount">Get Discount Total</button>
+        <br>
+        <input type="text" name="total" id="total">(RM)
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("form").submit(function (event) {
+                event.preventDefault();
+
+                var price = $("#price").val();
+                var discount = $("#discount").val();
+                var total = price * (discount / 100);
+                $("#total").val(total);
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>
