@@ -70,10 +70,16 @@
             // }
 
             // WAY2: Use innerHTML
-            for (var i = 0; i < fruit.length; i++) {
-                ul.innerHTML+="<li>"+fruit[i]+"</li>";
-            }
+            // for (var i = 0; i < fruit.length; i++) {
+            //     ul.innerHTML+="<li>"+fruit[i]+"</li>";
+            // }
             // WRONG TO just li.innerHTML = "<li>"+fruit[i]+"</li>"; as it will overwrite the content
+
+
+            // WAY2: Use array interation with innerHTML
+            fruit.forEach(function(item){
+                ul.innerHTML+="<li>"+item+"</li>";
+            })
 
             document.getElementById("fruit").value = "";    // Clear the previous input
         })

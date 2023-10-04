@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <table border=1>
+    <table border=1 >
         <thead>
             <tr>
                 <td>Description</td>
@@ -70,49 +70,31 @@
         }
 
         // Using JQuery
-        $(document).ready(function () {
+        // $(document).ready(function () {
 
-            // Loop through the social media data and populate the table using jQuery
-            $.each(user_profile.social_media, function (index, socialMedia) {
-                var row = $("<tr>");
+        //     // Loop through the social media data and populate the table using jQuery
+        //     $.each(user_profile.social_media, function (index, socialMedia) {
+        //         var row = $("<tr>");
 
-                var descriptionCell = $("<td>").text(socialMedia.description);
+        //         var descriptionCell = $("<td>").text(socialMedia.description);
 
-                var linkCell = $("<td>");
-                var linkElement = $("<a>")
-                    .attr("href", socialMedia.link)
-                    .text(socialMedia.link)
-                    .click(function (event) {
-                        event.preventDefault();
-                        alert(socialMedia.about);
-                    });
+        //         var linkCell = $("<td>");
+        //         var linkElement = $("<a>")
+        //             .attr("href", socialMedia.link)
+        //             .text(socialMedia.link)
+        //             .click(function (event) {
+        //                 event.preventDefault();
+        //                 alert(socialMedia.about);
+        //             });
 
-                linkCell.append(linkElement);
+        //         linkCell.append(linkElement);
 
-                row.append(descriptionCell);
-                row.append(linkCell);
+        //         row.append(descriptionCell);
+        //         row.append(linkCell);
 
-                $("#content").append(row);
-            });
-        });
-
-        // ============= Store JSON Object =============================
-        // Convert the JavaScript object to a JSON string
-        var userProfileJSON = JSON.stringify(user_profile);
-
-        // Store the JSON string in sessionStorage
-        sessionStorage.setItem('userProfile', userProfileJSON);
-
-        // ============= Retrieve JSON Object =============================
-        // Retrieve the JSON string from sessionStorage
-        var userProfileJSON = localStorage.getItem('userProfile');
-
-        // Parse the JSON string back to a JavaScript object
-        var userProfile = JSON.parse(userProfileJSON);
-
-        // Now, userProfile contains the stored JSON object
-        console.log(userProfile);
-
+        //         $("#content").append(row);
+        //     });
+        // });
 
     </script>
 </body>

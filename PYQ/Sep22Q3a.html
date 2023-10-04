@@ -23,19 +23,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script type="text/javascript">
-        $(function () {
-            $("form").submit(function (event) {
-                event.preventDefault();
+        // Using JavaScript
+        document.querySelector("form").addEventListener("submit", function(event){
+            event.preventDefault();
 
-                var price = $("#price").val();
-                var discount = $("#discount").val();
-                var total = price * (discount / 100);
-                $("#total").val(total);
-            })
+            var price = document.getElementById("price").value;
+            var discount = document.getElementById("discount").value;
+            var total = price * (discount/100);
+            document.getElementById("total").value = total;
         })
+
+        // Using jQuery
+        // $(function () {
+        //     $("form").submit(function (event) {
+        //         event.preventDefault();
+
+        //         var price = $("#price").val();
+        //         var discount = $("#discount").val();
+        //         var total = price * (discount / 100);
+        //         $("#total").val(total);
+        //     })
+        // })
     </script>
-
-
 </body>
-
 </html>

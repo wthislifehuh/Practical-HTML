@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+
+<body>
+    <form>
+        <table>
+            <caption>
+                <h1>Student Registration</h1>
+            </caption>
+            <tr>
+                <td>Student Name: </td>
+                <td colspan="2"><input type="text" name="name" id="name" size="50" required></td>
+            </tr>
+            <tr>
+                <td>Student ID: </td>
+                <td colspan="2"><input type="text" placeholder="21ACB00000" pattern="/d{2}[a-zA-Z]{2}/d{5}" name="id"
+                        id="id" size="50" required></td>
+            </tr>
+            <tr>
+                <td>Student Address: </td>
+                <td colspan="2"><textarea name="address" id="address" cols="47" rows="3" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Mobile Number: </td>
+                <td colspan="2"><input type="tel" placeholder="xxx-xxxxxxx" pattern="/d{3}-/d{8}" name="tel" id="tel"
+                        size="50" required></td>
+            </tr>
+            <tr>
+                <td>Student Email: </td>
+                <td colspan="2"><input type="email" placeholder="domain@gmail.com" name="email" id="email" size="50"
+                        required></td>
+            </tr>
+            <tr>
+                <td>Gender: </td>
+                <td><input type="radio" name="gender" value="Male"><label>Male</label></td>
+                <td><input type="radio" name="gender" value="Female"><label>Female</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Register" id="registerBtn"></td>
+                <td><input type="reset" value="Clear" id="clearBtn"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

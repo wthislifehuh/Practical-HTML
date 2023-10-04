@@ -9,36 +9,54 @@
 
 <body>
     <form>
-        <input type="date" id="date" name="date">
-        <button id="submit" name="submit" type="submit">Calculate Age</button>
+        <input type="date" name="date">
+        <button name="submit" type="submit">Calculate Age</button>
         <p></p>
     </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script type="text/javascript">
-        $(function () {
-            $("form").submit(function (event) {
-                event.preventDefault(); // Prevent form submission
-                var inputDate = new Date($("#date").val());
-                var currentDate = new Date();
-                var age = currentDate.getFullYear() - inputDate.getFullYear();
+        // Using JavaScript
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault();
 
-                // Check if the birthday hasn't occurred this year yet
-                if (
-                    currentDate.getMonth() < inputDate.getMonth() ||
-                    (currentDate.getMonth() === inputDate.getMonth() &&
-                        currentDate.getDate() < inputDate.getDate())
-                ) {
-                    age--;
-                }
+            var inputDate = new Date(document.querySelector("input[type='date']").value);
+            var currentDate = new Date();
+            var age = currentDate.getFullYear() - inputDate.getFullYear();
 
-                $("p").html("Age: " + age + " years");
-            })
-        })
+            // Check if the birthday hasn't occurred this year yet
+            if (
+                currentDate.getMonth() < inputDate.getMonth() ||
+                (currentDate.getMonth() === inputDate.getMonth() &&
+                    currentDate.getDate() < inputDate.getDate())
+            ) {
+                age--;
+            }
 
-        var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        var dayOfWeekString = daysOfWeek[nowdate.getDay()];
+            document.querySelector("p").innerHTML = "Age: " + age + " years";
+        });
+
+        // Using jQuery
+        // $(function () {
+        //     $("form").submit(function (event) {
+        //         event.preventDefault(); // Prevent form submission
+        //         var inputDate = new Date($("#date").val());
+        //         var currentDate = new Date();
+        //         var age = currentDate.getFullYear() - inputDate.getFullYear();
+
+        //         // Check if the birthday hasn't occurred this year yet
+        //         if (
+        //             currentDate.getMonth() < inputDate.getMonth() ||
+        //             (currentDate.getMonth() === inputDate.getMonth() &&
+        //                 currentDate.getDate() < inputDate.getDate())
+        //         ) {
+        //             age--;
+        //         }
+
+        //         $("p").html("Age: " + age + " years");
+        //     })
+        // })
     </script>
 </body>
 

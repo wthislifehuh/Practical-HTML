@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title> HTML DOM,Event and Object </title>
 </head>
+
 <body>
     <form onsubmit="addArrayFunction(event)">
         <table>
@@ -27,32 +29,32 @@
     </form>
     <p id="demo"></p>
     <p id="ave"></p>
-        <script>
-            var arr = [];
+    <script>
+        var arr = [];
 
-            var total = 0;
+        var total = 0;
 
-            function addArrayFunction(event) {
-                event.preventDefault();
+        function addArrayFunction(event) {
+            event.preventDefault();
 
-                var str = document.getElementById("str").value;
+            var str = document.getElementById("str").value;
 
-                total += str.length;
-                             
-                arr.push(str);
+            total += str.length;
 
-                document.getElementById("str").value = "";
+            arr.push(str); // Add str into arr
 
-                arr.sort();
+            document.getElementById("str").value = "";
 
-                document.getElementById("demo").innerHTML = arr.join('<br>');
+            arr.sort();
 
-                document.getElementById("ave").innerHTML = "Average number of characters : " + (total / arr.length).toFixed(2);
+            document.getElementById("demo").innerHTML = arr.join('<br>');
 
-            }
+            document.getElementById("ave").innerHTML = "Average number of characters : " + (total / arr.length).toFixed(2);
+
+        }
 
 
-        </script>
+    </script>
 </body>
-</html>
 
+</html>
